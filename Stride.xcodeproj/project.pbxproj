@@ -8,12 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		7D5BAF161CB5CED200D5D373 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5BAF151CB5CED200D5D373 /* AppDelegate.swift */; };
-		7D5BAF181CB5CED200D5D373 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5BAF171CB5CED200D5D373 /* ViewController.swift */; };
 		7D5BAF1B1CB5CED200D5D373 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D5BAF191CB5CED200D5D373 /* Main.storyboard */; };
 		7D5BAF1D1CB5CED200D5D373 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D5BAF1C1CB5CED200D5D373 /* Assets.xcassets */; };
 		7D5BAF201CB5CED200D5D373 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D5BAF1E1CB5CED200D5D373 /* LaunchScreen.storyboard */; };
 		7D5BAF2B1CB5CED200D5D373 /* StrideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5BAF2A1CB5CED200D5D373 /* StrideTests.swift */; };
 		7D5BAF361CB5CED200D5D373 /* StrideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5BAF351CB5CED200D5D373 /* StrideUITests.swift */; };
+		7D84D7A91CBD542500392A1F /* StrideCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7A81CBD542500392A1F /* StrideCalculatorViewController.swift */; };
+		7D84D7AC1CBD545800392A1F /* NewRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7AB1CBD545800392A1F /* NewRunViewController.swift */; };
+		7D84D7AE1CBD546C00392A1F /* PastRunsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7AD1CBD546C00392A1F /* PastRunsViewController.swift */; };
+		7D84D7B01CBD548D00392A1F /* PastRunDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7AF1CBD548D00392A1F /* PastRunDetailViewController.swift */; };
+		7D84D7B21CBD561200392A1F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7B11CBD561200392A1F /* HomeViewController.swift */; };
+		7D84D7B41CBEDCFE00392A1F /* CAGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7B31CBEDCFE00392A1F /* CAGradient.swift */; };
+		7D84D7B71CBEE9F800392A1F /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7B61CBEE9F800392A1F /* Run.swift */; };
+		7D84D7B91CBEEA0A00392A1F /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7B81CBEEA0A00392A1F /* Location.swift */; };
+		7D84D7BD1CBEF07600392A1F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D84D7BC1CBEF07600392A1F /* MapKit.framework */; };
+		7D84D7BF1CBEF30F00392A1F /* RunnerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7BE1CBEF30F00392A1F /* RunnerSettings.swift */; };
+		7D84D7C11CC6B09100392A1F /* UIViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7C01CC6B09100392A1F /* UIViewController2.swift */; };
+		7D84D7C31CC6B39300392A1F /* SetPaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7C21CC6B39300392A1F /* SetPaceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +47,6 @@
 /* Begin PBXFileReference section */
 		7D5BAF121CB5CED200D5D373 /* Stride.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stride.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D5BAF151CB5CED200D5D373 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7D5BAF171CB5CED200D5D373 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7D5BAF1A1CB5CED200D5D373 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7D5BAF1C1CB5CED200D5D373 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D5BAF1F1CB5CED200D5D373 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +57,18 @@
 		7D5BAF311CB5CED200D5D373 /* StrideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StrideUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D5BAF351CB5CED200D5D373 /* StrideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrideUITests.swift; sourceTree = "<group>"; };
 		7D5BAF371CB5CED200D5D373 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D84D7A81CBD542500392A1F /* StrideCalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrideCalculatorViewController.swift; sourceTree = "<group>"; };
+		7D84D7AB1CBD545800392A1F /* NewRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRunViewController.swift; sourceTree = "<group>"; };
+		7D84D7AD1CBD546C00392A1F /* PastRunsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastRunsViewController.swift; sourceTree = "<group>"; };
+		7D84D7AF1CBD548D00392A1F /* PastRunDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastRunDetailViewController.swift; sourceTree = "<group>"; };
+		7D84D7B11CBD561200392A1F /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		7D84D7B31CBEDCFE00392A1F /* CAGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAGradient.swift; sourceTree = "<group>"; };
+		7D84D7B61CBEE9F800392A1F /* Run.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
+		7D84D7B81CBEEA0A00392A1F /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		7D84D7BC1CBEF07600392A1F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7D84D7BE1CBEF30F00392A1F /* RunnerSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunnerSettings.swift; sourceTree = "<group>"; };
+		7D84D7C01CC6B09100392A1F /* UIViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController2.swift; sourceTree = "<group>"; };
+		7D84D7C21CC6B39300392A1F /* SetPaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetPaceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D84D7BD1CBEF07600392A1F /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +104,7 @@
 				7D5BAF291CB5CED200D5D373 /* StrideTests */,
 				7D5BAF341CB5CED200D5D373 /* StrideUITests */,
 				7D5BAF131CB5CED200D5D373 /* Products */,
+				7D84D7BC1CBEF07600392A1F /* MapKit.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,10 +122,10 @@
 			isa = PBXGroup;
 			children = (
 				7D5BAF151CB5CED200D5D373 /* AppDelegate.swift */,
-				7D5BAF171CB5CED200D5D373 /* ViewController.swift */,
-				7D5BAF191CB5CED200D5D373 /* Main.storyboard */,
+				7DAD30811CC6D42400494EB9 /* View */,
+				7D84D7B51CBEE9ED00392A1F /* Model */,
+				7D84D7AA1CBD543000392A1F /* Controller */,
 				7D5BAF1C1CB5CED200D5D373 /* Assets.xcassets */,
-				7D5BAF1E1CB5CED200D5D373 /* LaunchScreen.storyboard */,
 				7D5BAF211CB5CED200D5D373 /* Info.plist */,
 			);
 			path = Stride;
@@ -123,6 +147,40 @@
 				7D5BAF371CB5CED200D5D373 /* Info.plist */,
 			);
 			path = StrideUITests;
+			sourceTree = "<group>";
+		};
+		7D84D7AA1CBD543000392A1F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7D84D7A81CBD542500392A1F /* StrideCalculatorViewController.swift */,
+				7D84D7C01CC6B09100392A1F /* UIViewController2.swift */,
+				7D84D7AB1CBD545800392A1F /* NewRunViewController.swift */,
+				7D84D7AD1CBD546C00392A1F /* PastRunsViewController.swift */,
+				7D84D7AF1CBD548D00392A1F /* PastRunDetailViewController.swift */,
+				7D84D7B11CBD561200392A1F /* HomeViewController.swift */,
+				7D84D7C21CC6B39300392A1F /* SetPaceViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		7D84D7B51CBEE9ED00392A1F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7D84D7B61CBEE9F800392A1F /* Run.swift */,
+				7D84D7B81CBEEA0A00392A1F /* Location.swift */,
+				7D84D7BE1CBEF30F00392A1F /* RunnerSettings.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		7DAD30811CC6D42400494EB9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7D84D7B31CBEDCFE00392A1F /* CAGradient.swift */,
+				7D5BAF191CB5CED200D5D373 /* Main.storyboard */,
+				7D5BAF1E1CB5CED200D5D373 /* LaunchScreen.storyboard */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +252,11 @@
 					7D5BAF111CB5CED200D5D373 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 9258A8T4HT;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					7D5BAF251CB5CED200D5D373 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -259,8 +322,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D5BAF181CB5CED200D5D373 /* ViewController.swift in Sources */,
+				7D84D7AE1CBD546C00392A1F /* PastRunsViewController.swift in Sources */,
+				7D84D7B71CBEE9F800392A1F /* Run.swift in Sources */,
 				7D5BAF161CB5CED200D5D373 /* AppDelegate.swift in Sources */,
+				7D84D7A91CBD542500392A1F /* StrideCalculatorViewController.swift in Sources */,
+				7D84D7C11CC6B09100392A1F /* UIViewController2.swift in Sources */,
+				7D84D7B91CBEEA0A00392A1F /* Location.swift in Sources */,
+				7D84D7BF1CBEF30F00392A1F /* RunnerSettings.swift in Sources */,
+				7D84D7C31CC6B39300392A1F /* SetPaceViewController.swift in Sources */,
+				7D84D7AC1CBD545800392A1F /* NewRunViewController.swift in Sources */,
+				7D84D7B41CBEDCFE00392A1F /* CAGradient.swift in Sources */,
+				7D84D7B21CBD561200392A1F /* HomeViewController.swift in Sources */,
+				7D84D7B01CBD548D00392A1F /* PastRunDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +473,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Stride/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Appsolutely.Stride;
@@ -411,6 +485,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Stride/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Appsolutely.Stride;
@@ -485,6 +560,7 @@
 				7D5BAF3C1CB5CED200D5D373 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7D5BAF3D1CB5CED200D5D373 /* Build configuration list for PBXNativeTarget "StrideTests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +569,7 @@
 				7D5BAF3F1CB5CED200D5D373 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7D5BAF401CB5CED200D5D373 /* Build configuration list for PBXNativeTarget "StrideUITests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +578,7 @@
 				7D5BAF421CB5CED200D5D373 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
