@@ -28,6 +28,7 @@
 		7DAD30861CC7218C00494EB9 /* SettingsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAD30851CC7218C00494EB9 /* SettingsMainViewController.swift */; };
 		7DAD30881CC7230400494EB9 /* StrideCalcInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAD30871CC7230400494EB9 /* StrideCalcInitViewController.swift */; };
 		7DAD308A1CC7BD8200494EB9 /* PastRunsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAD30891CC7BD8200494EB9 /* PastRunsTableViewCell.swift */; };
+		7DAD308D1CC7DCFB00494EB9 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAD308C1CC7DCFB00494EB9 /* InformationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		7DAD30851CC7218C00494EB9 /* SettingsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsMainViewController.swift; sourceTree = "<group>"; };
 		7DAD30871CC7230400494EB9 /* StrideCalcInitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrideCalcInitViewController.swift; sourceTree = "<group>"; };
 		7DAD30891CC7BD8200494EB9 /* PastRunsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastRunsTableViewCell.swift; sourceTree = "<group>"; };
+		7DAD308C1CC7DCFB00494EB9 /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 		7D84D7AA1CBD543000392A1F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7DAD308B1CC7DCDE00494EB9 /* Information */,
 				7DAD30841CC7049500494EB9 /* Runs */,
 				7DAD30831CC7047D00494EB9 /* Home */,
 				7DAD30821CC7046300494EB9 /* Settings */,
@@ -214,6 +217,14 @@
 				7D84D7AF1CBD548D00392A1F /* PastRunDetailViewController.swift */,
 			);
 			name = Runs;
+			sourceTree = "<group>";
+		};
+		7DAD308B1CC7DCDE00494EB9 /* Information */ = {
+			isa = PBXGroup;
+			children = (
+				7DAD308C1CC7DCFB00494EB9 /* InformationViewController.swift */,
+			);
+			name = Information;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,6 +381,7 @@
 				7D84D7B21CBD561200392A1F /* HomeViewController.swift in Sources */,
 				7D84D7B01CBD548D00392A1F /* PastRunDetailViewController.swift in Sources */,
 				7DAD308A1CC7BD8200494EB9 /* PastRunsTableViewCell.swift in Sources */,
+				7DAD308D1CC7DCFB00494EB9 /* InformationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,10 +522,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Stride/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Appsolutely.Stride;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -522,10 +536,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Stride/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Appsolutely.Stride;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

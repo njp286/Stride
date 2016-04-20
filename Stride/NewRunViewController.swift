@@ -16,9 +16,13 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     //MARK --- Variables and UI//
     /////////////////////////////
     
+    @IBOutlet weak var distanceLabelLabel: UILabel!
     @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var map: MKMapView!
+    @IBOutlet weak var paceLabelLabel: UILabel!
+    @IBOutlet weak var timeLabelLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var goalPaceLabelLabel: UILabel!
     @IBOutlet weak var paceLabel: UILabel!
     @IBOutlet weak var goalPaceLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -60,6 +64,11 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         paceLabel.hidden = true
         goalPaceLabel.hidden = true
         timeLabel.hidden = true
+        distanceLabelLabel.hidden = true
+        paceLabelLabel.hidden = true
+        timeLabelLabel.hidden = true
+        goalPaceLabelLabel.hidden = true
+        
         
     }
     
@@ -222,6 +231,12 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             paceLabel.hidden = false
             goalPaceLabel.hidden = false
             timeLabel.hidden = false
+            
+            distanceLabelLabel.hidden = false
+            paceLabelLabel.hidden = false
+            timeLabelLabel.hidden = false
+            goalPaceLabelLabel.hidden = false
+            
             goalPaceLabel.text = myGoalPace
             
             

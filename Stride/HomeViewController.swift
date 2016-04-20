@@ -14,6 +14,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var startRunButton: UIButton!
     
+    @IBOutlet weak var infoButton: UIButton!
+    @IBOutlet weak var statisticsButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var pastRunsButton: UIButton!
     
@@ -24,6 +26,9 @@ class HomeViewController: UIViewController {
         setButtonAppearance(startRunButton)
         setButtonAppearance(settingsButton)
         setButtonAppearance(pastRunsButton)
+        setButtonAppearance(statisticsButton)
+        setButtonAppearance(infoButton)
+        
         
         initAppearance()
         

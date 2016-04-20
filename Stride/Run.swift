@@ -28,7 +28,7 @@ class myRuns {
     }
     
     func add(run: Run) {
-        runsArray.append(run)
+        runsArray.insert(run, atIndex: 0)  
     }
     
     func delete(index: Int) {
