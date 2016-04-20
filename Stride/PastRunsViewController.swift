@@ -64,7 +64,8 @@ class PastRunsViewController: UIViewController, UITableViewDelegate, UITableView
         
         let cell = tableView.dequeueReusableCellWithIdentifier("pastRunCell", forIndexPath: indexPath) as! PastRunsTableViewCell
         
-        cell.backgroundColor = UIColor.clearColor()
+        cell.backgroundColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 0.3)
+
         
         let runObject = myRuns.sharedInstance().at(indexPath.row)
         
@@ -84,7 +85,9 @@ class PastRunsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //TO DO: GO to run view
+        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("PastRunDetailViewController") as! PastRunDetailViewController
+        detailController.run = myRuns.sharedInstance().at(indexPath.row)
+        self.navigationController!.pushViewController(detailController, animated: true)
 
     }
     
