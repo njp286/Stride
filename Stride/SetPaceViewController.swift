@@ -22,7 +22,8 @@ class SetPaceViewController: UIViewController, UITextFieldDelegate {
         minutesTextField.delegate = self
         secondsTextField.delegate = self
         submitButton.enabled = false
-        
+        setButtonAppearance(submitButton)
+        submitButton.layer.opacity = 0.2
         initAppearance()
         
     }
@@ -33,11 +34,9 @@ class SetPaceViewController: UIViewController, UITextFieldDelegate {
         
         let time = 60*(Int(minutesTextField.text!)!) + Int(secondsTextField.text!)!
         
-        
         let distance = 1
         let mileTimeField = time
         let pace = time
-        
         
         var info = [String : AnyObject]()
         info[RunSettingsStruct.mileTime] = mileTimeField
@@ -45,7 +44,6 @@ class SetPaceViewController: UIViewController, UITextFieldDelegate {
         info[RunSettingsStruct.paceGoal] = pace
         
         let runnerInfo = RunnerSettings.init(dictionary: info)
-        
         
         
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -60,7 +58,18 @@ class SetPaceViewController: UIViewController, UITextFieldDelegate {
 
         
     }
-
+    
+    func setButtonAppearance(button: UIButton){
+        button.hidden = false
+        button.layer.cornerRadius = 10
+        button.clipsToBounds = true
+        button.layer.shadowColor = UIColor.blackColor().CGColor
+        button.layer.shadowOffset = CGSizeMake(1.5, 1.5);
+        button.layer.shadowOpacity = 0.35;
+        button.layer.shadowRadius = 0.0;
+        button.layer.masksToBounds = false
+        
+    }
     
     
     func alertError(error: String){
@@ -102,6 +111,7 @@ class SetPaceViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(textField: UITextField) {
         if !(minutesTextField.text?.isEmpty)! && !(secondsTextField.text?.isEmpty)!{
                 submitButton.enabled = true
+                submitButton.layer.opacity = 1.0
         }
     }
 

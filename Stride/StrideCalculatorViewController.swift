@@ -21,11 +21,24 @@ class StrideCalculatorViewController: UIViewController, UITextFieldDelegate {
         mileTime.delegate = self
         distanceTextField.delegate = self
         submitButtton.enabled = false
-        
+        setButtonAppearance(submitButtton)
+        submitButtton.layer.opacity = 0.2
         initAppearance()
         
     }
     
+    func setButtonAppearance(button: UIButton){
+        button.hidden = false
+        button.layer.cornerRadius = 10
+        button.clipsToBounds = true
+        button.layer.shadowColor = UIColor.blackColor().CGColor
+        button.layer.shadowOffset = CGSizeMake(1.5, 1.5);
+        button.layer.shadowOpacity = 0.35;
+        button.layer.shadowRadius = 0.0;
+        button.layer.masksToBounds = false
+        
+    }
+
 
     
     func initAppearance() -> Void {
@@ -112,6 +125,7 @@ class StrideCalculatorViewController: UIViewController, UITextFieldDelegate {
         if textField == distanceTextField {
             if !(distanceTextField.text?.isEmpty)! && !(mileTime.text?.isEmpty)!{
                 submitButtton.enabled = true
+                submitButtton.layer.opacity = 1.0
             }
         }
     }

@@ -25,6 +25,9 @@
 		7D84D7BF1CBEF30F00392A1F /* RunnerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7BE1CBEF30F00392A1F /* RunnerSettings.swift */; };
 		7D84D7C11CC6B09100392A1F /* UIViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7C01CC6B09100392A1F /* UIViewController2.swift */; };
 		7D84D7C31CC6B39300392A1F /* SetPaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7C21CC6B39300392A1F /* SetPaceViewController.swift */; };
+		7DAD30861CC7218C00494EB9 /* SettingsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAD30851CC7218C00494EB9 /* SettingsMainViewController.swift */; };
+		7DAD30881CC7230400494EB9 /* StrideCalcInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAD30871CC7230400494EB9 /* StrideCalcInitViewController.swift */; };
+		7DAD308A1CC7BD8200494EB9 /* PastRunsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAD30891CC7BD8200494EB9 /* PastRunsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +72,9 @@
 		7D84D7BE1CBEF30F00392A1F /* RunnerSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunnerSettings.swift; sourceTree = "<group>"; };
 		7D84D7C01CC6B09100392A1F /* UIViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController2.swift; sourceTree = "<group>"; };
 		7D84D7C21CC6B39300392A1F /* SetPaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetPaceViewController.swift; sourceTree = "<group>"; };
+		7DAD30851CC7218C00494EB9 /* SettingsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsMainViewController.swift; sourceTree = "<group>"; };
+		7DAD30871CC7230400494EB9 /* StrideCalcInitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrideCalcInitViewController.swift; sourceTree = "<group>"; };
+		7DAD30891CC7BD8200494EB9 /* PastRunsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastRunsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,13 +158,10 @@
 		7D84D7AA1CBD543000392A1F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7D84D7A81CBD542500392A1F /* StrideCalculatorViewController.swift */,
+				7DAD30841CC7049500494EB9 /* Runs */,
+				7DAD30831CC7047D00494EB9 /* Home */,
+				7DAD30821CC7046300494EB9 /* Settings */,
 				7D84D7C01CC6B09100392A1F /* UIViewController2.swift */,
-				7D84D7AB1CBD545800392A1F /* NewRunViewController.swift */,
-				7D84D7AD1CBD546C00392A1F /* PastRunsViewController.swift */,
-				7D84D7AF1CBD548D00392A1F /* PastRunDetailViewController.swift */,
-				7D84D7B11CBD561200392A1F /* HomeViewController.swift */,
-				7D84D7C21CC6B39300392A1F /* SetPaceViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -179,8 +182,38 @@
 				7D84D7B31CBEDCFE00392A1F /* CAGradient.swift */,
 				7D5BAF191CB5CED200D5D373 /* Main.storyboard */,
 				7D5BAF1E1CB5CED200D5D373 /* LaunchScreen.storyboard */,
+				7DAD30891CC7BD8200494EB9 /* PastRunsTableViewCell.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		7DAD30821CC7046300494EB9 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				7D84D7A81CBD542500392A1F /* StrideCalculatorViewController.swift */,
+				7D84D7C21CC6B39300392A1F /* SetPaceViewController.swift */,
+				7DAD30851CC7218C00494EB9 /* SettingsMainViewController.swift */,
+				7DAD30871CC7230400494EB9 /* StrideCalcInitViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		7DAD30831CC7047D00494EB9 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7D84D7B11CBD561200392A1F /* HomeViewController.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		7DAD30841CC7049500494EB9 /* Runs */ = {
+			isa = PBXGroup;
+			children = (
+				7D84D7AB1CBD545800392A1F /* NewRunViewController.swift */,
+				7D84D7AD1CBD546C00392A1F /* PastRunsViewController.swift */,
+				7D84D7AF1CBD548D00392A1F /* PastRunDetailViewController.swift */,
+			);
+			name = Runs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,7 +357,9 @@
 			files = (
 				7D84D7AE1CBD546C00392A1F /* PastRunsViewController.swift in Sources */,
 				7D84D7B71CBEE9F800392A1F /* Run.swift in Sources */,
+				7DAD30881CC7230400494EB9 /* StrideCalcInitViewController.swift in Sources */,
 				7D5BAF161CB5CED200D5D373 /* AppDelegate.swift in Sources */,
+				7DAD30861CC7218C00494EB9 /* SettingsMainViewController.swift in Sources */,
 				7D84D7A91CBD542500392A1F /* StrideCalculatorViewController.swift in Sources */,
 				7D84D7C11CC6B09100392A1F /* UIViewController2.swift in Sources */,
 				7D84D7B91CBEEA0A00392A1F /* Location.swift in Sources */,
@@ -334,6 +369,7 @@
 				7D84D7B41CBEDCFE00392A1F /* CAGradient.swift in Sources */,
 				7D84D7B21CBD561200392A1F /* HomeViewController.swift in Sources */,
 				7D84D7B01CBD548D00392A1F /* PastRunDetailViewController.swift in Sources */,
+				7DAD308A1CC7BD8200494EB9 /* PastRunsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

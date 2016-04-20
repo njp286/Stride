@@ -22,6 +22,23 @@ class myRuns {
         
         return Singleton.sharedInstance
     }
+    
+    func at(index: Int) -> Run {
+        return runsArray[index]
+    }
+    
+    func add(run: Run) {
+        runsArray.append(run)
+    }
+    
+    func delete(index: Int) {
+        runsArray.removeAtIndex(index)
+    }
+    
+    var count: Int {
+        return runsArray.count
+    }
+
 }
 
 struct Run {
