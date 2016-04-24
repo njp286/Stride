@@ -7,10 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D3A31EA1CCA778400001B00 /* 1Woman11.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31C81CCA778400001B00 /* 1Woman11.mp3 */; };
+		7D3A31EB1CCA778400001B00 /* 1Woman12.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31C91CCA778400001B00 /* 1Woman12.mp3 */; };
+		7D3A31EC1CCA778400001B00 /* 1Woman21.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31CA1CCA778400001B00 /* 1Woman21.mp3 */; };
+		7D3A31ED1CCA778400001B00 /* 1Woman22.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31CB1CCA778400001B00 /* 1Woman22.mp3 */; };
+		7D3A31EE1CCA778400001B00 /* 1Woman23.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31CC1CCA778400001B00 /* 1Woman23.mp3 */; };
+		7D3A31EF1CCA778400001B00 /* 1Woman31.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31CD1CCA778400001B00 /* 1Woman31.mp3 */; };
+		7D3A31F01CCA778400001B00 /* 1Woman32.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31CE1CCA778400001B00 /* 1Woman32.mp3 */; };
+		7D3A31F11CCA778400001B00 /* 1Woman33.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31CF1CCA778400001B00 /* 1Woman33.mp3 */; };
+		7D3A31F21CCA778400001B00 /* 2Woman11.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31D01CCA778400001B00 /* 2Woman11.mp3 */; };
+		7D3A31F31CCA778400001B00 /* 2Woman12.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31D11CCA778400001B00 /* 2Woman12.mp3 */; };
+		7D3A31F41CCA778400001B00 /* 2Woman13.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31D21CCA778400001B00 /* 2Woman13.mp3 */; };
+		7D3A31F51CCA778400001B00 /* 2Woman21.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31D31CCA778400001B00 /* 2Woman21.mp3 */; };
+		7D3A31F61CCA778400001B00 /* 2Woman22.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31D41CCA778400001B00 /* 2Woman22.mp3 */; };
+		7D3A31F71CCA778400001B00 /* 2Woman23.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31D51CCA778400001B00 /* 2Woman23.mp3 */; };
+		7D3A31F81CCA778400001B00 /* 2Woman31.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31D61CCA778400001B00 /* 2Woman31.mp3 */; };
+		7D3A31F91CCA778400001B00 /* 2Woman32.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31D71CCA778400001B00 /* 2Woman32.mp3 */; };
+		7D3A31FA1CCA778400001B00 /* 2Woman33.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31D81CCA778400001B00 /* 2Woman33.mp3 */; };
+		7D3A31FB1CCA778400001B00 /* 3Woman11.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31D91CCA778400001B00 /* 3Woman11.mp3 */; };
+		7D3A31FC1CCA778400001B00 /* 3Woman12.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31DA1CCA778400001B00 /* 3Woman12.mp3 */; };
+		7D3A31FD1CCA778400001B00 /* 3Woman13.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31DB1CCA778400001B00 /* 3Woman13.mp3 */; };
+		7D3A31FE1CCA778400001B00 /* 3Woman21.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31DC1CCA778400001B00 /* 3Woman21.mp3 */; };
+		7D3A31FF1CCA778400001B00 /* 3Woman22.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31DD1CCA778400001B00 /* 3Woman22.mp3 */; };
+		7D3A32001CCA778400001B00 /* 3Woman23.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31DE1CCA778400001B00 /* 3Woman23.mp3 */; };
+		7D3A32011CCA778400001B00 /* 3Woman31.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31DF1CCA778400001B00 /* 3Woman31.mp3 */; };
+		7D3A32021CCA778400001B00 /* 3Woman32.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31E01CCA778400001B00 /* 3Woman32.mp3 */; };
+		7D3A32031CCA778400001B00 /* 3Woman33.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31E11CCA778400001B00 /* 3Woman33.mp3 */; };
+		7D3A32041CCA778400001B00 /* 4Woman12.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31E21CCA778400001B00 /* 4Woman12.mp3 */; };
+		7D3A32051CCA778400001B00 /* 4Woman13.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31E31CCA778400001B00 /* 4Woman13.mp3 */; };
+		7D3A32061CCA778400001B00 /* 4Woman21.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31E41CCA778400001B00 /* 4Woman21.mp3 */; };
+		7D3A32071CCA778400001B00 /* 4Woman22.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31E51CCA778400001B00 /* 4Woman22.mp3 */; };
+		7D3A32081CCA778400001B00 /* 4Woman23.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31E61CCA778400001B00 /* 4Woman23.mp3 */; };
+		7D3A32091CCA778400001B00 /* 4Woman31.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31E71CCA778400001B00 /* 4Woman31.mp3 */; };
+		7D3A320A1CCA778400001B00 /* 4Woman32.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31E81CCA778400001B00 /* 4Woman32.mp3 */; };
+		7D3A320B1CCA778400001B00 /* 4Woman33.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31E91CCA778400001B00 /* 4Woman33.mp3 */; };
 		7D5BAF161CB5CED200D5D373 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5BAF151CB5CED200D5D373 /* AppDelegate.swift */; };
 		7D5BAF1B1CB5CED200D5D373 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D5BAF191CB5CED200D5D373 /* Main.storyboard */; };
 		7D5BAF1D1CB5CED200D5D373 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D5BAF1C1CB5CED200D5D373 /* Assets.xcassets */; };
-		7D5BAF201CB5CED200D5D373 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D5BAF1E1CB5CED200D5D373 /* LaunchScreen.storyboard */; };
 		7D5BAF2B1CB5CED200D5D373 /* StrideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5BAF2A1CB5CED200D5D373 /* StrideTests.swift */; };
 		7D5BAF361CB5CED200D5D373 /* StrideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5BAF351CB5CED200D5D373 /* StrideUITests.swift */; };
 		7D84D7A91CBD542500392A1F /* StrideCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7A81CBD542500392A1F /* StrideCalculatorViewController.swift */; };
@@ -23,12 +56,15 @@
 		7D84D7B91CBEEA0A00392A1F /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7B81CBEEA0A00392A1F /* Location.swift */; };
 		7D84D7BD1CBEF07600392A1F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D84D7BC1CBEF07600392A1F /* MapKit.framework */; };
 		7D84D7BF1CBEF30F00392A1F /* RunnerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7BE1CBEF30F00392A1F /* RunnerSettings.swift */; };
-		7D84D7C11CC6B09100392A1F /* UIViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7C01CC6B09100392A1F /* UIViewController2.swift */; };
 		7D84D7C31CC6B39300392A1F /* SetPaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7C21CC6B39300392A1F /* SetPaceViewController.swift */; };
 		7DAD30861CC7218C00494EB9 /* SettingsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAD30851CC7218C00494EB9 /* SettingsMainViewController.swift */; };
 		7DAD30881CC7230400494EB9 /* StrideCalcInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAD30871CC7230400494EB9 /* StrideCalcInitViewController.swift */; };
 		7DAD308A1CC7BD8200494EB9 /* PastRunsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAD30891CC7BD8200494EB9 /* PastRunsTableViewCell.swift */; };
 		7DAD308D1CC7DCFB00494EB9 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAD308C1CC7DCFB00494EB9 /* InformationViewController.swift */; };
+		7DAD30941CC7EF5400494EB9 /* StrideCoachSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAD30931CC7EF5400494EB9 /* StrideCoachSettingsViewController.swift */; };
+		7DAD309C1CC7F7DB00494EB9 /* StrideCoachSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAD309B1CC7F7DB00494EB9 /* StrideCoachSettings.swift */; };
+		7DD3EE831CCB0590009F7B13 /* 1Woman13.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7DD3EE821CCB0590009F7B13 /* 1Woman13.mp3 */; };
+		E14EAAA5BF72B519FB3FA368 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB47491F37EB42CF4484E55 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,11 +85,46 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		609A0676259DB46556E9BE3E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		7CB47491F37EB42CF4484E55 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D3A31C81CCA778400001B00 /* 1Woman11.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1Woman11.mp3; sourceTree = "<group>"; };
+		7D3A31C91CCA778400001B00 /* 1Woman12.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1Woman12.mp3; sourceTree = "<group>"; };
+		7D3A31CA1CCA778400001B00 /* 1Woman21.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1Woman21.mp3; sourceTree = "<group>"; };
+		7D3A31CB1CCA778400001B00 /* 1Woman22.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1Woman22.mp3; sourceTree = "<group>"; };
+		7D3A31CC1CCA778400001B00 /* 1Woman23.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1Woman23.mp3; sourceTree = "<group>"; };
+		7D3A31CD1CCA778400001B00 /* 1Woman31.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1Woman31.mp3; sourceTree = "<group>"; };
+		7D3A31CE1CCA778400001B00 /* 1Woman32.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1Woman32.mp3; sourceTree = "<group>"; };
+		7D3A31CF1CCA778400001B00 /* 1Woman33.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1Woman33.mp3; sourceTree = "<group>"; };
+		7D3A31D01CCA778400001B00 /* 2Woman11.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2Woman11.mp3; sourceTree = "<group>"; };
+		7D3A31D11CCA778400001B00 /* 2Woman12.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2Woman12.mp3; sourceTree = "<group>"; };
+		7D3A31D21CCA778400001B00 /* 2Woman13.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2Woman13.mp3; sourceTree = "<group>"; };
+		7D3A31D31CCA778400001B00 /* 2Woman21.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2Woman21.mp3; sourceTree = "<group>"; };
+		7D3A31D41CCA778400001B00 /* 2Woman22.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2Woman22.mp3; sourceTree = "<group>"; };
+		7D3A31D51CCA778400001B00 /* 2Woman23.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2Woman23.mp3; sourceTree = "<group>"; };
+		7D3A31D61CCA778400001B00 /* 2Woman31.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2Woman31.mp3; sourceTree = "<group>"; };
+		7D3A31D71CCA778400001B00 /* 2Woman32.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2Woman32.mp3; sourceTree = "<group>"; };
+		7D3A31D81CCA778400001B00 /* 2Woman33.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2Woman33.mp3; sourceTree = "<group>"; };
+		7D3A31D91CCA778400001B00 /* 3Woman11.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3Woman11.mp3; sourceTree = "<group>"; };
+		7D3A31DA1CCA778400001B00 /* 3Woman12.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3Woman12.mp3; sourceTree = "<group>"; };
+		7D3A31DB1CCA778400001B00 /* 3Woman13.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3Woman13.mp3; sourceTree = "<group>"; };
+		7D3A31DC1CCA778400001B00 /* 3Woman21.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3Woman21.mp3; sourceTree = "<group>"; };
+		7D3A31DD1CCA778400001B00 /* 3Woman22.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3Woman22.mp3; sourceTree = "<group>"; };
+		7D3A31DE1CCA778400001B00 /* 3Woman23.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3Woman23.mp3; sourceTree = "<group>"; };
+		7D3A31DF1CCA778400001B00 /* 3Woman31.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3Woman31.mp3; sourceTree = "<group>"; };
+		7D3A31E01CCA778400001B00 /* 3Woman32.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3Woman32.mp3; sourceTree = "<group>"; };
+		7D3A31E11CCA778400001B00 /* 3Woman33.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3Woman33.mp3; sourceTree = "<group>"; };
+		7D3A31E21CCA778400001B00 /* 4Woman12.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 4Woman12.mp3; sourceTree = "<group>"; };
+		7D3A31E31CCA778400001B00 /* 4Woman13.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 4Woman13.mp3; sourceTree = "<group>"; };
+		7D3A31E41CCA778400001B00 /* 4Woman21.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 4Woman21.mp3; sourceTree = "<group>"; };
+		7D3A31E51CCA778400001B00 /* 4Woman22.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 4Woman22.mp3; sourceTree = "<group>"; };
+		7D3A31E61CCA778400001B00 /* 4Woman23.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 4Woman23.mp3; sourceTree = "<group>"; };
+		7D3A31E71CCA778400001B00 /* 4Woman31.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 4Woman31.mp3; sourceTree = "<group>"; };
+		7D3A31E81CCA778400001B00 /* 4Woman32.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 4Woman32.mp3; sourceTree = "<group>"; };
+		7D3A31E91CCA778400001B00 /* 4Woman33.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 4Woman33.mp3; sourceTree = "<group>"; };
 		7D5BAF121CB5CED200D5D373 /* Stride.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stride.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D5BAF151CB5CED200D5D373 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D5BAF1A1CB5CED200D5D373 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7D5BAF1C1CB5CED200D5D373 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7D5BAF1F1CB5CED200D5D373 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D5BAF211CB5CED200D5D373 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D5BAF261CB5CED200D5D373 /* StrideTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StrideTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D5BAF2A1CB5CED200D5D373 /* StrideTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrideTests.swift; sourceTree = "<group>"; };
@@ -61,6 +132,7 @@
 		7D5BAF311CB5CED200D5D373 /* StrideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StrideUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D5BAF351CB5CED200D5D373 /* StrideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrideUITests.swift; sourceTree = "<group>"; };
 		7D5BAF371CB5CED200D5D373 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D770C601CCC7FDD003B6C9E /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		7D84D7A81CBD542500392A1F /* StrideCalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrideCalculatorViewController.swift; sourceTree = "<group>"; };
 		7D84D7AB1CBD545800392A1F /* NewRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRunViewController.swift; sourceTree = "<group>"; };
 		7D84D7AD1CBD546C00392A1F /* PastRunsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastRunsViewController.swift; sourceTree = "<group>"; };
@@ -71,12 +143,15 @@
 		7D84D7B81CBEEA0A00392A1F /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		7D84D7BC1CBEF07600392A1F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7D84D7BE1CBEF30F00392A1F /* RunnerSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunnerSettings.swift; sourceTree = "<group>"; };
-		7D84D7C01CC6B09100392A1F /* UIViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController2.swift; sourceTree = "<group>"; };
 		7D84D7C21CC6B39300392A1F /* SetPaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetPaceViewController.swift; sourceTree = "<group>"; };
 		7DAD30851CC7218C00494EB9 /* SettingsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsMainViewController.swift; sourceTree = "<group>"; };
 		7DAD30871CC7230400494EB9 /* StrideCalcInitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrideCalcInitViewController.swift; sourceTree = "<group>"; };
 		7DAD30891CC7BD8200494EB9 /* PastRunsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastRunsTableViewCell.swift; sourceTree = "<group>"; };
 		7DAD308C1CC7DCFB00494EB9 /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
+		7DAD30931CC7EF5400494EB9 /* StrideCoachSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrideCoachSettingsViewController.swift; sourceTree = "<group>"; };
+		7DAD309B1CC7F7DB00494EB9 /* StrideCoachSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrideCoachSettings.swift; sourceTree = "<group>"; };
+		7DD3EE821CCB0590009F7B13 /* 1Woman13.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1Woman13.mp3; sourceTree = "<group>"; };
+		7E100D5FD8BEA36739CAA7D4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D84D7BD1CBEF07600392A1F /* MapKit.framework in Frameworks */,
+				E14EAAA5BF72B519FB3FA368 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +181,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D3A31C71CCA776C00001B00 /* FemaleAudio */ = {
+			isa = PBXGroup;
+			children = (
+				7D3A31C81CCA778400001B00 /* 1Woman11.mp3 */,
+				7D3A31C91CCA778400001B00 /* 1Woman12.mp3 */,
+				7DD3EE821CCB0590009F7B13 /* 1Woman13.mp3 */,
+				7D3A31CA1CCA778400001B00 /* 1Woman21.mp3 */,
+				7D3A31CB1CCA778400001B00 /* 1Woman22.mp3 */,
+				7D3A31CC1CCA778400001B00 /* 1Woman23.mp3 */,
+				7D3A31CD1CCA778400001B00 /* 1Woman31.mp3 */,
+				7D3A31CE1CCA778400001B00 /* 1Woman32.mp3 */,
+				7D3A31CF1CCA778400001B00 /* 1Woman33.mp3 */,
+				7D3A31D01CCA778400001B00 /* 2Woman11.mp3 */,
+				7D3A31D11CCA778400001B00 /* 2Woman12.mp3 */,
+				7D3A31D21CCA778400001B00 /* 2Woman13.mp3 */,
+				7D3A31D31CCA778400001B00 /* 2Woman21.mp3 */,
+				7D3A31D41CCA778400001B00 /* 2Woman22.mp3 */,
+				7D3A31D51CCA778400001B00 /* 2Woman23.mp3 */,
+				7D3A31D61CCA778400001B00 /* 2Woman31.mp3 */,
+				7D3A31D71CCA778400001B00 /* 2Woman32.mp3 */,
+				7D3A31D81CCA778400001B00 /* 2Woman33.mp3 */,
+				7D3A31D91CCA778400001B00 /* 3Woman11.mp3 */,
+				7D3A31DA1CCA778400001B00 /* 3Woman12.mp3 */,
+				7D3A31DB1CCA778400001B00 /* 3Woman13.mp3 */,
+				7D3A31DC1CCA778400001B00 /* 3Woman21.mp3 */,
+				7D3A31DD1CCA778400001B00 /* 3Woman22.mp3 */,
+				7D3A31DE1CCA778400001B00 /* 3Woman23.mp3 */,
+				7D3A31DF1CCA778400001B00 /* 3Woman31.mp3 */,
+				7D3A31E01CCA778400001B00 /* 3Woman32.mp3 */,
+				7D3A31E11CCA778400001B00 /* 3Woman33.mp3 */,
+				7D3A31E21CCA778400001B00 /* 4Woman12.mp3 */,
+				7D3A31E31CCA778400001B00 /* 4Woman13.mp3 */,
+				7D3A31E41CCA778400001B00 /* 4Woman21.mp3 */,
+				7D3A31E51CCA778400001B00 /* 4Woman22.mp3 */,
+				7D3A31E61CCA778400001B00 /* 4Woman23.mp3 */,
+				7D3A31E71CCA778400001B00 /* 4Woman31.mp3 */,
+				7D3A31E81CCA778400001B00 /* 4Woman32.mp3 */,
+				7D3A31E91CCA778400001B00 /* 4Woman33.mp3 */,
+			);
+			name = FemaleAudio;
+			sourceTree = "<group>";
+		};
 		7D5BAF091CB5CED200D5D373 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +231,8 @@
 				7D5BAF341CB5CED200D5D373 /* StrideUITests */,
 				7D5BAF131CB5CED200D5D373 /* Products */,
 				7D84D7BC1CBEF07600392A1F /* MapKit.framework */,
+				92869CBF4D002221A7595B4E /* Frameworks */,
+				D65BF3B823CF790C9B7E25D2 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,6 +255,8 @@
 				7D84D7AA1CBD543000392A1F /* Controller */,
 				7D5BAF1C1CB5CED200D5D373 /* Assets.xcassets */,
 				7D5BAF211CB5CED200D5D373 /* Info.plist */,
+				7D3A31C71CCA776C00001B00 /* FemaleAudio */,
+				7D770C601CCC7FDD003B6C9E /* BridgingHeader.h */,
 			);
 			path = Stride;
 			sourceTree = "<group>";
@@ -160,11 +282,11 @@
 		7D84D7AA1CBD543000392A1F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7DAD308E1CC7ED0100494EB9 /* Statistics */,
 				7DAD308B1CC7DCDE00494EB9 /* Information */,
 				7DAD30841CC7049500494EB9 /* Runs */,
 				7DAD30831CC7047D00494EB9 /* Home */,
 				7DAD30821CC7046300494EB9 /* Settings */,
-				7D84D7C01CC6B09100392A1F /* UIViewController2.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -175,6 +297,7 @@
 				7D84D7B61CBEE9F800392A1F /* Run.swift */,
 				7D84D7B81CBEEA0A00392A1F /* Location.swift */,
 				7D84D7BE1CBEF30F00392A1F /* RunnerSettings.swift */,
+				7DAD309B1CC7F7DB00494EB9 /* StrideCoachSettings.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -184,8 +307,6 @@
 			children = (
 				7D84D7B31CBEDCFE00392A1F /* CAGradient.swift */,
 				7D5BAF191CB5CED200D5D373 /* Main.storyboard */,
-				7D5BAF1E1CB5CED200D5D373 /* LaunchScreen.storyboard */,
-				7DAD30891CC7BD8200494EB9 /* PastRunsTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -193,10 +314,8 @@
 		7DAD30821CC7046300494EB9 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				7D84D7A81CBD542500392A1F /* StrideCalculatorViewController.swift */,
-				7D84D7C21CC6B39300392A1F /* SetPaceViewController.swift */,
-				7DAD30851CC7218C00494EB9 /* SettingsMainViewController.swift */,
-				7DAD30871CC7230400494EB9 /* StrideCalcInitViewController.swift */,
+				7DAD30951CC7F0F800494EB9 /* Calculator */,
+				7DAD30961CC7F10300494EB9 /* StrideCoach */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -215,6 +334,7 @@
 				7D84D7AB1CBD545800392A1F /* NewRunViewController.swift */,
 				7D84D7AD1CBD546C00392A1F /* PastRunsViewController.swift */,
 				7D84D7AF1CBD548D00392A1F /* PastRunDetailViewController.swift */,
+				7DAD30891CC7BD8200494EB9 /* PastRunsTableViewCell.swift */,
 			);
 			name = Runs;
 			sourceTree = "<group>";
@@ -227,6 +347,49 @@
 			name = Information;
 			sourceTree = "<group>";
 		};
+		7DAD308E1CC7ED0100494EB9 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Statistics;
+			sourceTree = "<group>";
+		};
+		7DAD30951CC7F0F800494EB9 /* Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				7D84D7A81CBD542500392A1F /* StrideCalculatorViewController.swift */,
+				7D84D7C21CC6B39300392A1F /* SetPaceViewController.swift */,
+				7DAD30851CC7218C00494EB9 /* SettingsMainViewController.swift */,
+				7DAD30871CC7230400494EB9 /* StrideCalcInitViewController.swift */,
+			);
+			name = Calculator;
+			sourceTree = "<group>";
+		};
+		7DAD30961CC7F10300494EB9 /* StrideCoach */ = {
+			isa = PBXGroup;
+			children = (
+				7DAD30931CC7EF5400494EB9 /* StrideCoachSettingsViewController.swift */,
+			);
+			name = StrideCoach;
+			sourceTree = "<group>";
+		};
+		92869CBF4D002221A7595B4E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7CB47491F37EB42CF4484E55 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D65BF3B823CF790C9B7E25D2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7E100D5FD8BEA36739CAA7D4 /* Pods.debug.xcconfig */,
+				609A0676259DB46556E9BE3E /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -234,9 +397,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7D5BAF3A1CB5CED200D5D373 /* Build configuration list for PBXNativeTarget "Stride" */;
 			buildPhases = (
+				1EF16D46093762190E45B4B2 /* Check Pods Manifest.lock */,
 				7D5BAF0E1CB5CED200D5D373 /* Sources */,
 				7D5BAF0F1CB5CED200D5D373 /* Frameworks */,
 				7D5BAF101CB5CED200D5D373 /* Resources */,
+				826FF00695EADCE4C86BCEE2 /* Embed Pods Frameworks */,
+				8E42B94670B864B793449542 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -339,9 +505,43 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D5BAF201CB5CED200D5D373 /* LaunchScreen.storyboard in Resources */,
+				7D3A31EB1CCA778400001B00 /* 1Woman12.mp3 in Resources */,
+				7D3A31F91CCA778400001B00 /* 2Woman32.mp3 in Resources */,
+				7D3A31FE1CCA778400001B00 /* 3Woman21.mp3 in Resources */,
+				7D3A31FF1CCA778400001B00 /* 3Woman22.mp3 in Resources */,
+				7D3A32071CCA778400001B00 /* 4Woman22.mp3 in Resources */,
+				7D3A31F61CCA778400001B00 /* 2Woman22.mp3 in Resources */,
+				7D3A32011CCA778400001B00 /* 3Woman31.mp3 in Resources */,
+				7D3A32001CCA778400001B00 /* 3Woman23.mp3 in Resources */,
+				7D3A31F51CCA778400001B00 /* 2Woman21.mp3 in Resources */,
+				7D3A31F71CCA778400001B00 /* 2Woman23.mp3 in Resources */,
+				7D3A32031CCA778400001B00 /* 3Woman33.mp3 in Resources */,
+				7D3A31FB1CCA778400001B00 /* 3Woman11.mp3 in Resources */,
+				7D3A31F31CCA778400001B00 /* 2Woman12.mp3 in Resources */,
+				7D3A31FD1CCA778400001B00 /* 3Woman13.mp3 in Resources */,
+				7D3A32091CCA778400001B00 /* 4Woman31.mp3 in Resources */,
+				7DD3EE831CCB0590009F7B13 /* 1Woman13.mp3 in Resources */,
+				7D3A31EF1CCA778400001B00 /* 1Woman31.mp3 in Resources */,
+				7D3A31EE1CCA778400001B00 /* 1Woman23.mp3 in Resources */,
+				7D3A31F11CCA778400001B00 /* 1Woman33.mp3 in Resources */,
+				7D3A31F81CCA778400001B00 /* 2Woman31.mp3 in Resources */,
+				7D3A31F01CCA778400001B00 /* 1Woman32.mp3 in Resources */,
+				7D3A31EA1CCA778400001B00 /* 1Woman11.mp3 in Resources */,
+				7D3A31FA1CCA778400001B00 /* 2Woman33.mp3 in Resources */,
+				7D3A320B1CCA778400001B00 /* 4Woman33.mp3 in Resources */,
+				7D3A31F41CCA778400001B00 /* 2Woman13.mp3 in Resources */,
+				7D3A32081CCA778400001B00 /* 4Woman23.mp3 in Resources */,
 				7D5BAF1D1CB5CED200D5D373 /* Assets.xcassets in Resources */,
+				7D3A31ED1CCA778400001B00 /* 1Woman22.mp3 in Resources */,
+				7D3A32061CCA778400001B00 /* 4Woman21.mp3 in Resources */,
+				7D3A31EC1CCA778400001B00 /* 1Woman21.mp3 in Resources */,
+				7D3A32041CCA778400001B00 /* 4Woman12.mp3 in Resources */,
+				7D3A31FC1CCA778400001B00 /* 3Woman12.mp3 in Resources */,
+				7D3A32021CCA778400001B00 /* 3Woman32.mp3 in Resources */,
 				7D5BAF1B1CB5CED200D5D373 /* Main.storyboard in Resources */,
+				7D3A32051CCA778400001B00 /* 4Woman13.mp3 in Resources */,
+				7D3A320A1CCA778400001B00 /* 4Woman32.mp3 in Resources */,
+				7D3A31F21CCA778400001B00 /* 2Woman11.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +561,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1EF16D46093762190E45B4B2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		826FF00695EADCE4C86BCEE2 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E42B94670B864B793449542 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7D5BAF0E1CB5CED200D5D373 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -372,7 +620,7 @@
 				7D5BAF161CB5CED200D5D373 /* AppDelegate.swift in Sources */,
 				7DAD30861CC7218C00494EB9 /* SettingsMainViewController.swift in Sources */,
 				7D84D7A91CBD542500392A1F /* StrideCalculatorViewController.swift in Sources */,
-				7D84D7C11CC6B09100392A1F /* UIViewController2.swift in Sources */,
+				7DAD30941CC7EF5400494EB9 /* StrideCoachSettingsViewController.swift in Sources */,
 				7D84D7B91CBEEA0A00392A1F /* Location.swift in Sources */,
 				7D84D7BF1CBEF30F00392A1F /* RunnerSettings.swift in Sources */,
 				7D84D7C31CC6B39300392A1F /* SetPaceViewController.swift in Sources */,
@@ -381,6 +629,7 @@
 				7D84D7B21CBD561200392A1F /* HomeViewController.swift in Sources */,
 				7D84D7B01CBD548D00392A1F /* PastRunDetailViewController.swift in Sources */,
 				7DAD308A1CC7BD8200494EB9 /* PastRunsTableViewCell.swift in Sources */,
+				7DAD309C1CC7F7DB00494EB9 /* StrideCoachSettings.swift in Sources */,
 				7DAD308D1CC7DCFB00494EB9 /* InformationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,21 +674,13 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		7D5BAF1E1CB5CED200D5D373 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7D5BAF1F1CB5CED200D5D373 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7D5BAF381CB5CED200D5D373 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -476,14 +717,16 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = Stride/BridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USER_HEADER_SEARCH_PATHS = "Pods/**";
 			};
 			name = Debug;
 		};
 		7D5BAF391CB5CED200D5D373 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -513,12 +756,15 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = Stride/BridgingHeader.h;
+				USER_HEADER_SEARCH_PATHS = "Pods/**";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		7D5BAF3B1CB5CED200D5D373 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E100D5FD8BEA36739CAA7D4 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -533,6 +779,7 @@
 		};
 		7D5BAF3C1CB5CED200D5D373 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 609A0676259DB46556E9BE3E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

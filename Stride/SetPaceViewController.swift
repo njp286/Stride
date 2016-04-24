@@ -7,14 +7,24 @@
 //
 
 import UIKit
+import SkyFloatingLabelTextField
 
 class SetPaceViewController: UIViewController, UITextFieldDelegate {
 
     
-    @IBOutlet weak var minutesTextField: UITextField!
-    @IBOutlet weak var secondsTextField: UITextField!
+    /////////////////////////////
+    //MARK --- Variables and UI//
+    /////////////////////////////
+    
+    @IBOutlet weak var minutesTextField: SkyFloatingLabelTextField!
+    @IBOutlet weak var secondsTextField: SkyFloatingLabelTextField!
     
     @IBOutlet weak var submitButton: UIButton!
+    
+    
+    ///////////////////////
+    ///   MARK -- VIEW  ///
+    ///////////////////////
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +36,44 @@ class SetPaceViewController: UIViewController, UITextFieldDelegate {
         submitButton.layer.opacity = 0.2
         initAppearance()
         
+        applySkyscannerTheme(minutesTextField)
+        applySkyscannerTheme(secondsTextField)
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Gill Sans", size: 20)!]
+        
+    }
+   
+    func applySkyscannerTheme(textField: SkyFloatingLabelTextField) {
+        
+        // Set custom fonts for the title, placeholder and textfield labels
+        textField.titleLabel.font = UIFont(name: "Gill Sans", size: 12)
+        textField.placeholderFont = UIFont(name: "Gill Sans", size: 22)
+        textField.font = UIFont(name: "Gill Sans", size: 22)
     }
     
-  
+    func initAppearance() -> Void {
+        
+        let background = CAGradientLayer().turquoiseColor()
+        background.frame = self.view.bounds
+        self.view.layer.insertSublayer(background, atIndex: 0)
+    }
+    
+    
+    func setButtonAppearance(button: UIButton){
+        button.hidden = false
+        button.layer.cornerRadius = 10
+        button.clipsToBounds = true
+        button.layer.shadowColor = UIColor.blackColor().CGColor
+        button.layer.shadowOffset = CGSizeMake(1.5, 1.5);
+        button.layer.shadowOpacity = 0.35;
+        button.layer.shadowRadius = 0.0;
+        button.layer.masksToBounds = false
+        
+    }
+    
+    ////////////////////////////////
+    ///   MARK -- Submit Button  ///
+    ////////////////////////////////
     
     @IBAction func submitPressed(sender: AnyObject) {
         
@@ -42,6 +87,8 @@ class SetPaceViewController: UIViewController, UITextFieldDelegate {
         info[RunSettingsStruct.mileTime] = mileTimeField
         info[RunSettingsStruct.goalDistance] = distance
         info[RunSettingsStruct.paceGoal] = pace
+        
+        print(distance, mileTimeField, pace)
         
         let runnerInfo = RunnerSettings.init(dictionary: info)
         
@@ -59,18 +106,10 @@ class SetPaceViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    func setButtonAppearance(button: UIButton){
-        button.hidden = false
-        button.layer.cornerRadius = 10
-        button.clipsToBounds = true
-        button.layer.shadowColor = UIColor.blackColor().CGColor
-        button.layer.shadowOffset = CGSizeMake(1.5, 1.5);
-        button.layer.shadowOpacity = 0.35;
-        button.layer.shadowRadius = 0.0;
-        button.layer.masksToBounds = false
-        
-    }
-    
+
+    //////////////////////////////
+    ///   MARK -- Alert Error  ///
+    //////////////////////////////
     
     func alertError(error: String){
         let alert = UIAlertController(title: "Error", message: error, preferredStyle: .Alert)
@@ -83,15 +122,10 @@ class SetPaceViewController: UIViewController, UITextFieldDelegate {
 
     
     
-    func initAppearance() -> Void {
-        
-        let background = CAGradientLayer().turquoiseColor()
-        background.frame = self.view.bounds
-        self.view.layer.insertSublayer(background, atIndex: 0)
-    }
 
-    
-    //Mark -- Text Field Delegate Stuff
+    //////////////////////////////////////
+    //Mark -- Text Field Delegate Stuff///
+    //////////////////////////////////////
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         view.endEditing(true)

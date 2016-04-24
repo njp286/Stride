@@ -23,6 +23,8 @@ class SettingsMainViewController: UIViewController {
         initAppearance()
         navBar.leftBarButtonItem = UIBarButtonItem(title: "Home", style: .Plain, target: self, action: #selector(SettingsMainViewController.toHome))
         
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Gill Sans", size: 20)!]
+        
     }
     
     //Nav bar function to dismiss view controller

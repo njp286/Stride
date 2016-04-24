@@ -17,6 +17,8 @@ class StrideCalcInitViewController: UIViewController {
         super.viewDidLoad()
         setButtonAppearance(strideCalculatorButton)
         setButtonAppearance(setOwnPaceButton)
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Gill Sans", size: 20)!]
    
         initAppearance()
         

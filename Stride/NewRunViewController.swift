@@ -9,8 +9,11 @@
 import UIKit
 import CoreLocation
 import MapKit
+import AVFoundation
+import Font_Awesome_Swift
 
-class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+
+class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, AVAudioPlayerDelegate {
     
     /////////////////////////////
     //MARK --- Variables and UI//
@@ -31,13 +34,23 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     var seconds = 0
     var mins = 0
     var distance = 0.0
-    var isPaused = true
     var myGoalPace: String!
+    
+    var paceGoalSeconds: Int!
+    var currentPaceSeconds: Int!
+    
+    var isCoachNotSet: Bool!
+    var isCoachOn: Bool!
+    
+    var coachIntensity: String!
+    var coachGender: String!
     
     
     var annotations = [MKPointAnnotation]()
     var locations = [CLLocation]()
     lazy var timer = NSTimer()
+    
+    var audioPlayer = AVAudioPlayer()
     
     ///////////////////////
     ///   MARK -- VIEW  ///
@@ -55,11 +68,20 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         runActionButton.layer.shadowRadius = 0.0;
         runActionButton.layer.masksToBounds = false
         
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Gill Sans", size: 20)!]
+        
+        
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 20))
+        imageView.contentMode = .ScaleAspectFit
+        let logo = UIImage(named: "STRIDEpng")
+        imageView.image = logo
+        self.navBar.titleView = imageView
     
         
         locationManager.requestAlwaysAuthorization()
         getPace()
+        getCoachInfo()
+        
         distanceLabel.hidden = true
         paceLabel.hidden = true
         goalPaceLabel.hidden = true
@@ -72,21 +94,27 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         
     }
     
-    //Invalidate timer
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        timer.invalidate()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navBar.leftBarButtonItem = UIBarButtonItem(title: "Home", style: .Plain, target: self, action: #selector(NewRunViewController.toHome))
+     
+        navBar.leftBarButtonItem = UIBarButtonItem(image: UIImage(icon: FAType.FAHome, size: CGSize(width: 35.0, height: 35.0), textColor: UIColor.whiteColor() , backgroundColor: UIColor.clearColor()), style: .Plain, target: self, action: #selector(NewRunViewController.toHome))
+        
         
         runActionButton.setTitle("Start Running", forState: .Normal)
         map.delegate = self
         map.userTrackingMode = .Follow
         initAppearance()
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, withOptions: .DuckOthers)
+        }
+        catch {
+            //error
+        }
+
+       ///PERHAPS AUDIO SHIT
         
     }
     
@@ -100,7 +128,36 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     //Nav bar function to dismiss view controller
     func toHome(){
-        self.dismissViewControllerAnimated(true, completion: nil)
+        timer.invalidate()
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    //fill in coach info
+    func getCoachInfo(){
+        isCoachNotSet = StrideCoachSettingsClass.sharedInstance().scSettings.first == nil
+        isCoachOn = StrideCoachSettingsClass.sharedInstance().scSettings.first?.isOn == true
+        
+        if isCoachNotSet == true {
+            coachIntensity = "3"
+            coachGender = "Man"
+        }
+        
+        if isCoachOn == true {
+            let coach = StrideCoachSettingsClass.sharedInstance().scSettings.first!.coach
+            let num = coach.characters.last!
+            if ((coach.containsString("Woman")) == true){
+                coachGender = "Woman"
+            }
+            else{
+                coachGender = "Man"
+            }
+            
+            var value = ""
+            value.append(num)
+            coachIntensity = value
+            
+        }
+
     }
     
 
@@ -117,14 +174,14 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     //locationManager setup
     lazy var locationManager: CLLocationManager = {
-        var _locationManager = CLLocationManager()
-        _locationManager.delegate = self
-        _locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        _locationManager.activityType = .Fitness
-        
+        var manager = CLLocationManager()
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.activityType = .Fitness
+        manager.allowsBackgroundLocationUpdates = true
         // Movement threshold for new events
-        _locationManager.distanceFilter = 1.0
-        return _locationManager
+        manager.distanceFilter = 0.5
+        return manager
     }()
     
     //TO DO: CHANGE THIS TO BE PAUSE
@@ -140,7 +197,7 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         for location in locations {
             let howRecent = location.timestamp.timeIntervalSinceNow
             
-            if abs(howRecent) < 10 && location.horizontalAccuracy < 20 {
+            if abs(howRecent) < 10 && location.horizontalAccuracy < 30 {
                 //update distance
                 if self.locations.count > 0 {
                     distance += 0.00062137*location.distanceFromLocation(self.locations.last!)
@@ -168,7 +225,6 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     //end run
     func endRun(){
-        navBar.rightBarButtonItems?.removeAll()
         //stop timer
         timer.invalidate()
         //get rid of running action button
@@ -177,7 +233,8 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         stopLocationUpdates()
         //edit map to show all points
         fixMap()
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+        let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 2 * Int64(NSEC_PER_SEC))
+        dispatch_after(time, dispatch_get_main_queue()) {
             self.saveRun()
         }
         
@@ -199,7 +256,6 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     //save run
     func saveRun() {
-        
         generateMapImage(){ (image, error) in
             var thisRun = [String : AnyObject]()
             thisRun[RunningCategories.distance] = self.distanceLabel.text!
@@ -211,7 +267,6 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             
             //add to runs array
             myRuns.sharedInstance().add(Run(dictionary: thisRun))
-            print("run saved")
 
         }
         
@@ -221,10 +276,9 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     //Running button Pressed
     @IBAction func runActionPressed(sender: AnyObject) {
         //if resume run or start running
-        if(runActionButton.currentTitle == "Start Running" || runActionButton.currentTitle == "Resume Run"){
+        if(runActionButton.currentTitle == "Start Running"){
             locations.removeAll(keepCapacity: false)
             timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(eachSecond), userInfo: nil, repeats: true)
-            isPaused = false
             startLocationUpdates()
             
             distanceLabel.hidden = false
@@ -240,20 +294,13 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             goalPaceLabel.text = myGoalPace
             
             
-            runActionButton.setTitle("Pause Run", forState: .Normal)
-            runActionButton.backgroundColor = UIColor(red: (52/255.0), green: (185/255.0), blue: (255/255.0), alpha: 1)
+            runActionButton.setTitle("End Run", forState: .Normal)
+            runActionButton.backgroundColor = UIColor.redColor()
 
-            navBar.rightBarButtonItem = UIBarButtonItem(title: "End Run", style: .Plain, target: self, action: #selector(NewRunViewController.endRun))
-            navBar.rightBarButtonItem?.tintColor = UIColor.redColor()
         }
-        //if 'pause run'
+        //if 'end run'
         else{
-            timer.invalidate()
-            isPaused = true
-            runActionButton.setTitle("Resume Run", forState: .Normal)
-            runActionButton.backgroundColor = UIColor(red: (52/255.0), green: (52/255.0), blue: (255/255.0), alpha: 1)
-
-            stopLocationUpdates()
+            endRun()
         }
     }
     
@@ -261,8 +308,10 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     func getPace(){
         let runSets = RunnerSettingsInfo.sharedInstance().runSettings.first
         if((runSets?.paceGoal) != nil){
+            paceGoalSeconds = Int((runSets?.paceGoal)!)
+            
             let minPaceGoal = Int(Int((runSets?.paceGoal)!) / 60)
-            let secPaceGoal = Int((Int((runSets?.paceGoal)!) % 60) * 6/10)
+            let secPaceGoal = Int((Int((runSets?.paceGoal)!) % 60))
             
             let myPaceMins = String(format: "%02d", minPaceGoal)
             let myPaceSecs = String (format: "%02d", secPaceGoal)
@@ -291,22 +340,67 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         
         let totalTime = Double(mins*60 + seconds)
         
-        if (totalTime > 60 &&  seconds%20 == 0){
-            //TO DO: STRIDE COACH
-        }
-        
         
         // pace
         let myPace = (totalTime / distance)
-        let PaceSecs = (myPace % 60)  * (6/10)
+  
+        let PaceSecs = (myPace % 60) // * (6/10)
         let myPaceMins = String(format: "%.0f", myPace/60)
         var myPaceSecs = String (format: "%.0f", PaceSecs)
         if (PaceSecs < 10.000){
             myPaceSecs = "0" + myPaceSecs
         }
+        if (myPaceMins == "inf"){
+            paceLabel.text = "--"
+            currentPaceSeconds = 0
+        }else{
+            paceLabel.text = myPaceMins + ":" + myPaceSecs + "/mile"
+            currentPaceSeconds = Int(myPace)
+        }
         
-        paceLabel.text = myPaceMins + ":" + myPaceSecs + "/mile"
+       
         
+        ////////COACHING SHIT
+        //&&  totalTime > 60  && currentPaceSeconds > 0 && myGoalPace != "N/A"
+        if (seconds%20 == 0 && (isCoachNotSet || isCoachOn) ){
+            //let paceDiff = currentPaceSeconds - paceGoalSeconds
+            let paceDiff = 50 - Int(arc4random_uniform(100) + 1)
+            
+            let randomNum = Int(arc4random_uniform(3) + 1)
+            let ranNumStr = String(randomNum)
+            var adviceNum: String!
+            
+            //significant difference in pace
+            if(abs(paceDiff) > 10){
+                //running significantly faster than goal pace
+                if paceDiff < 0 {
+                    adviceNum = "1"
+                }
+                //running significantly slower than goal pace
+                else {
+                    adviceNum = "2"
+                }
+            }
+            //not a significant difference in pace & goal pace
+            else{
+                adviceNum = "3"
+            }
+            
+            let coachAdvice = coachIntensity + coachGender + adviceNum + ranNumStr
+            let coachSpeech = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(coachAdvice, ofType: "mp3")!)
+            
+            do{
+                //set audioSession to quiet
+                try AVAudioSession.sharedInstance().setActive(true, withOptions: .NotifyOthersOnDeactivation)
+                let speak = try AVAudioPlayer(contentsOfURL: coachSpeech)
+                speak.delegate = self
+                audioPlayer = speak
+                speak.play()
+            } catch {
+                print("Couldn't play file or set active")
+            }
+            
+        }
     }
 
     ////////////////////////////////
@@ -314,11 +408,7 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     ////////////////////////////////
     
     //draw route on map
-    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer! {
-        if !overlay.isKindOfClass(MKPolyline) {
-            return nil
-        }
-        
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
         let polyline = overlay as! MKPolyline
         let renderer = MKPolylineRenderer(polyline: polyline)
         renderer.strokeColor = UIColor.blueColor()
@@ -332,15 +422,15 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         for location in locations{
             let annotation = MKPointAnnotation()
             annotation.coordinate = location.coordinate
-            self.annotations.append(annotation)
+            annotations.append(annotation)
         }
-        self.map.addAnnotations(self.annotations)
+        map.addAnnotations(annotations)
         
         var topLeftCoord: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: -90, longitude: 180)
         var bottomRightCoord: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 90, longitude: -180)
         
         //find annotations that are furthest apart
-        for annotation in self.map.annotations {
+        for annotation in map.annotations {
             topLeftCoord.longitude = fmin(topLeftCoord.longitude, annotation.coordinate.longitude);
             topLeftCoord.latitude = fmax(topLeftCoord.latitude, annotation.coordinate.latitude);
             bottomRightCoord.longitude = fmax(bottomRightCoord.longitude, annotation.coordinate.longitude);
@@ -363,6 +453,25 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         ///REMOVE ALL ANNOTATIONS
         self.map.removeAnnotations(annotations)
         
+        
+    }
+    
+    
+    
+    //////////////////////////
+    /// MARK -- audio player//
+    //////////////////////////
+    
+    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
+        if flag == true{
+            do{
+                //set audioSession to quiet
+                //try AVAudioSessionCategoryPlayback
+                try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, withOptions: .MixWithOthers)
+            } catch {
+                print("Couldn't set unactive")
+            }
+        }
     }
     
 

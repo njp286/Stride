@@ -15,7 +15,6 @@ struct RunnerSettings {
     var paceGoal: NSNumber
     
     init(dictionary: [String:AnyObject]) {
-        //objectId = dictionary[ParseConstants.StudentLocationKeys.objectId] as! String
         mileTime = dictionary[RunSettingsStruct.mileTime] as! NSNumber
         goalDistance = dictionary[RunSettingsStruct.goalDistance] as! NSNumber
         paceGoal = dictionary[RunSettingsStruct.paceGoal] as! NSNumber

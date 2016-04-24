@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Font_Awesome_Swift
+import DZNEmptyDataSet
 
-class PastRunsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+class PastRunsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
 
     @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var tableView: UITableView!
@@ -17,7 +20,12 @@ class PastRunsViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        navBar.leftBarButtonItem = UIBarButtonItem(title: "Home", style: .Plain, target: self, action: #selector(PastRunsViewController.toHome))
+        
+        tableView.emptyDataSetSource = self;
+        tableView.emptyDataSetDelegate = self;
+        
+        navBar.leftBarButtonItem = UIBarButtonItem(image: UIImage(icon: FAType.FAHome, size: CGSize(width: 35.0, height: 35.0), textColor: UIColor.whiteColor() , backgroundColor: UIColor.clearColor()), style: .Plain, target: self, action: #selector(NewRunViewController.toHome))
+        
         initAppearance()
         
     }
@@ -55,7 +63,7 @@ class PastRunsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return myRuns.sharedInstance().count
+        return myRuns.sharedInstance().count()
     }
     
 
@@ -87,8 +95,7 @@ class PastRunsViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("PastRunDetailViewController") as! PastRunDetailViewController
         detailController.run = myRuns.sharedInstance().at(indexPath.row)
-        self.navigationController!.pushViewController(detailController, animated: true)
-
+        self.presentViewController(detailController, animated: true, completion: nil) 
     }
     
     //allow deletion of runs

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Font_Awesome_Swift
 
 class PastRunDetailViewController: UIViewController {
 
@@ -21,6 +22,8 @@ class PastRunDetailViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var paceLabel: UILabel!
     @IBOutlet weak var goalPaceLabel: UILabel!
+    @IBOutlet weak var exitButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
     
     var run: Run!
     
@@ -35,9 +38,8 @@ class PastRunDetailViewController: UIViewController {
         setView()
         initAppearance()
         
-        let shareButton = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(PastRunDetailViewController.sharePressed))
-        
-        self.navigationItem.rightBarButtonItem = shareButton
+        exitButton.setImage(UIImage(icon: FAType.FATimes, size: CGSize(width: 35.0, height: 35.0), textColor: UIColor.blueColor() , backgroundColor: UIColor.clearColor()), forState: .Normal)
+        exitButton.setImage(UIImage(icon: FAType.FATimes, size: CGSize(width: 35.0, height: 35.0), textColor: UIColor.lightGrayColor() , backgroundColor: UIColor.clearColor()), forState: .Selected)
         
     }
     
@@ -45,6 +47,7 @@ class PastRunDetailViewController: UIViewController {
         let background = CAGradientLayer().turquoiseColor()
         background.frame = self.view.bounds
         self.view.layer.insertSublayer(background, atIndex: 0)
+        
     }
     
     func setView() {
@@ -53,13 +56,30 @@ class PastRunDetailViewController: UIViewController {
         formatter.timeStyle = .NoStyle
         
         dateLabel.text = formatter.stringFromDate(run.timestamp)
-        mapImage.image = run.map
         distanceLabel.text = run.distance
         timeLabel.text = run.duration
         paceLabel.text = run.pace
         goalPaceLabel.text = run.goalPace
         
         
+        //Border around map
+        let size = run.map.size
+        UIGraphicsBeginImageContext(size)
+        
+        let rect = CGRectMake(0, 0, size.width, size.height)
+        run.map.drawInRect(rect, blendMode: .Normal, alpha: 1.0)
+        
+        let context = UIGraphicsGetCurrentContext()
+        CGContextSetRGBStrokeColor(context, 1.0, 0.5, 1.0, 1.0)
+        CGContextStrokeRect(context, rect)
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        
+        
+        mapImage.image = newImage
+
     }
     
     
@@ -70,19 +90,21 @@ class PastRunDetailViewController: UIViewController {
     
     //generate image
     func generateImage() -> UIImage {
+        exitButton.hidden = true
+        shareButton.hidden = true
         // get size of image view
         UIGraphicsBeginImageContextWithOptions(self.view.frame.size, false, 0)
         // get snapshot of image view and nothing else
         view.drawViewHierarchyInRect(CGRectMake(-self.view.frame.origin.x,-self.view.frame.origin.y,view.bounds.size.width,view.bounds.size.height), afterScreenUpdates: true)
         let image : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+        exitButton.hidden = false
+        shareButton.hidden = false
         
         return image
     }
 
-    
-    
-    func sharePressed() {
+    @IBAction func shareButtonPressed(sender: AnyObject) {
         let imageToShare = generateImage()
         let vc = UIActivityViewController(activityItems: [imageToShare], applicationActivities: [])
         vc.completionWithItemsHandler = { activity, success, items, error in
@@ -92,6 +114,12 @@ class PastRunDetailViewController: UIViewController {
         }
         presentViewController(vc, animated: true, completion: nil)
     }
+    
+    @IBAction func exitButtonPressed(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+
     
     
 }

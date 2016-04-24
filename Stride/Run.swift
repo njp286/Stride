@@ -35,7 +35,7 @@ class myRuns {
         runsArray.removeAtIndex(index)
     }
     
-    var count: Int {
+    func count() ->  Int {
         return runsArray.count
     }
 
