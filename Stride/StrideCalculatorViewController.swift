@@ -37,7 +37,6 @@ class StrideCalculatorViewController: UIViewController, UITextFieldDelegate {
         submitButtton.enabled = false
         setButtonAppearance(submitButtton)
         submitButtton.layer.opacity = 0.2
-        initAppearance()
         
         applySkyscannerTheme(distanceTextField)
         applySkyscannerTheme(mileTimeSeconds)
@@ -66,13 +65,7 @@ class StrideCalculatorViewController: UIViewController, UITextFieldDelegate {
         textField.placeholderFont = UIFont(name: "Gill Sans", size: 22)
         textField.font = UIFont(name: "Gill Sans", size: 22)
     }
-    
-    func initAppearance() -> Void {
-        
-        let background = CAGradientLayer().turquoiseColor()
-        background.frame = self.view.bounds
-        self.view.layer.insertSublayer(background, atIndex: 0)
-    }
+
     
     ////////////////////////////////
     ///   MARK -- Submit Button  ///

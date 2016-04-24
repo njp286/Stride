@@ -24,9 +24,9 @@ class PastRunsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.emptyDataSetSource = self;
         tableView.emptyDataSetDelegate = self;
         
-        navBar.leftBarButtonItem = UIBarButtonItem(image: UIImage(icon: FAType.FAHome, size: CGSize(width: 35.0, height: 35.0), textColor: UIColor.whiteColor() , backgroundColor: UIColor.clearColor()), style: .Plain, target: self, action: #selector(NewRunViewController.toHome))
+        tableView.tableFooterView = UIView()
         
-        initAppearance()
+        navBar.leftBarButtonItem = UIBarButtonItem(image: UIImage(icon: FAType.FAHome, size: CGSize(width: 35.0, height: 35.0), textColor: UIColor.whiteColor() , backgroundColor: UIColor.clearColor()), style: .Plain, target: self, action: #selector(NewRunViewController.toHome))
         
     }
     
@@ -36,13 +36,7 @@ class PastRunsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.reloadData()
     }
     
-    func initAppearance() -> Void {
-        
-        let background = CAGradientLayer().turquoiseColor()
-        background.frame = self.view.bounds
-        self.view.layer.insertSublayer(background, atIndex: 0)
-    
-    }
+
     
     //Nav bar function to dismiss view controller
     func toHome(){
@@ -113,6 +107,60 @@ class PastRunsViewController: UIViewController, UITableViewDelegate, UITableView
             
         } 
     }
+    
+    
+    //////////////////////////
+    // MARK -- empty dataset//
+    //////////////////////////
+    
+    func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+        return UIImage(named: "RunnerGray")
+    }
+    
+    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = "No Run Data"
+        let attributes = [  NSForegroundColorAttributeName : UIColor(red: (74/255.0), green: (74/255.0), blue: (74/255.0), alpha: 0.5),
+               NSFontAttributeName : UIFont(name: "Gill Sans", size: 40)!]
+        
+        let title: NSAttributedString = NSAttributedString(string: text, attributes: attributes)
+        return title
+        
+    }
+    
+    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        
+        let text = "When you go on a run you'll see your data here"
+        
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.lineBreakMode = .ByWordWrapping
+        paragraph.alignment = .Center
+        
+        let attributes = [  NSForegroundColorAttributeName : UIColor(red: (74/255.0), green: (74/255.0), blue: (74/255.0), alpha: 0.5),
+                            NSFontAttributeName : UIFont(name: "Gill Sans", size: 18)!]
+        
+        let desc = NSAttributedString(string: text, attributes: attributes)
+        return desc
+        
+    }
+    
+    func emptyDataSetShouldDisplay(scrollView: UIScrollView!) -> Bool {
+        return true
+    }
+    
+    func emptyDataSetShouldFadeIn(scrollView: UIScrollView!) -> Bool {
+        return true
+    }
+    
+    func emptyDataSetShouldAllowScroll(scrollView: UIScrollView!) -> Bool {
+        return true
+    }
+    
+    
+    func spaceHeightForEmptyDataSet(scrollView: UIScrollView!) -> CGFloat {
+        return 20.0
+    }
+    
+
     
     
 }

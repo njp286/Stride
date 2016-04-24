@@ -20,16 +20,10 @@ class StrideCalcInitViewController: UIViewController {
         
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Gill Sans", size: 20)!]
    
-        initAppearance()
         
     }
     
-    func initAppearance() -> Void {
-        
-        let background = CAGradientLayer().turquoiseColor()
-        background.frame = self.view.bounds
-        self.view.layer.insertSublayer(background, atIndex: 0)
-    }
+  
     
     func setButtonAppearance(button: UIButton){
         button.hidden = false

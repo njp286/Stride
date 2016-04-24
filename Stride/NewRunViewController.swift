@@ -105,7 +105,6 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         runActionButton.setTitle("Start Running", forState: .Normal)
         map.delegate = self
         map.userTrackingMode = .Follow
-        initAppearance()
         
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, withOptions: .DuckOthers)
@@ -118,12 +117,7 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         
     }
     
-    //sets background to gradient
-    func initAppearance() {
-        let background = CAGradientLayer().turquoiseColor()
-        background.frame = self.view.bounds
-        self.view.layer.insertSublayer(background, atIndex: 0)
-    }
+ 
     
     
     //Nav bar function to dismiss view controller
@@ -183,9 +177,7 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         manager.distanceFilter = 0.5
         return manager
     }()
-    
-    //TO DO: CHANGE THIS TO BE PAUSE
-    
+        
     //stop location updates
     func stopLocationUpdates() {
         locationManager.stopUpdatingLocation()

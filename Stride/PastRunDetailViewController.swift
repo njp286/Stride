@@ -36,19 +36,13 @@ class PastRunDetailViewController: UIViewController {
         super.viewDidLoad()
         
         setView()
-        initAppearance()
         
-        exitButton.setImage(UIImage(icon: FAType.FATimes, size: CGSize(width: 35.0, height: 35.0), textColor: UIColor.blueColor() , backgroundColor: UIColor.clearColor()), forState: .Normal)
-        exitButton.setImage(UIImage(icon: FAType.FATimes, size: CGSize(width: 35.0, height: 35.0), textColor: UIColor.lightGrayColor() , backgroundColor: UIColor.clearColor()), forState: .Selected)
+        exitButton.setImage(UIImage(icon: FAType.FAArrowCircleLeft, size: CGSize(width: 35.0, height: 35.0), textColor: UIColor(red: 5/255.0, green: 45/255.0, blue:  56/255.0, alpha: 1.0) , backgroundColor: UIColor.clearColor()), forState: .Normal)
+        exitButton.setImage(UIImage(icon: FAType.FATimes, size: CGSize(width: 35.0, height: 35.0), textColor: UIColor(red: 5/255.0, green: 45/255.0, blue:  56/255.0, alpha: 1.0) , backgroundColor: UIColor.clearColor()), forState: .Selected)
         
     }
     
-    func initAppearance(){
-        let background = CAGradientLayer().turquoiseColor()
-        background.frame = self.view.bounds
-        self.view.layer.insertSublayer(background, atIndex: 0)
-        
-    }
+
     
     func setView() {
         let formatter = NSDateFormatter()

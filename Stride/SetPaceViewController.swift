@@ -34,7 +34,6 @@ class SetPaceViewController: UIViewController, UITextFieldDelegate {
         submitButton.enabled = false
         setButtonAppearance(submitButton)
         submitButton.layer.opacity = 0.2
-        initAppearance()
         
         applySkyscannerTheme(minutesTextField)
         applySkyscannerTheme(secondsTextField)
@@ -51,13 +50,7 @@ class SetPaceViewController: UIViewController, UITextFieldDelegate {
         textField.font = UIFont(name: "Gill Sans", size: 22)
     }
     
-    func initAppearance() -> Void {
-        
-        let background = CAGradientLayer().turquoiseColor()
-        background.frame = self.view.bounds
-        self.view.layer.insertSublayer(background, atIndex: 0)
-    }
-    
+ 
     
     func setButtonAppearance(button: UIButton){
         button.hidden = false

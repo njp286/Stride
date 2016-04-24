@@ -1,0 +1,34 @@
+PODS:
+  - CircleMenu (1.0.0)
+  - DZNEmptyDataSet (1.8)
+  - Font-Awesome-Swift (1.4.7)
+  - FSLineChart (0.1.7)
+  - LTMorphingLabel (0.2.0)
+  - RaptureXML (1.0.1)
+  - SkyFloatingLabelTextField (1.2.0)
+  - UIImage+SVG (0.1):
+    - RaptureXML (~> 1.0.1)
+  - Whisper (2.1)
+
+DEPENDENCIES:
+  - CircleMenu (~> 1.0.0)
+  - DZNEmptyDataSet
+  - Font-Awesome-Swift (~> 1.4.7)
+  - FSLineChart
+  - LTMorphingLabel
+  - SkyFloatingLabelTextField (~> 1.0)
+  - UIImage+SVG (~> 0.1)
+  - Whisper
+
+SPEC CHECKSUMS:
+  CircleMenu: d67d88395705c20c23806632987288b39fbfc690
+  DZNEmptyDataSet: d2351b2e8daefa40433ef292e246e21f6be31a7b
+  Font-Awesome-Swift: 0131fd0f683ac024ce9abf1fdbc9fb482150ce49
+  FSLineChart: 1b8d3727e8feb323144126d381184bf1b15e6efc
+  LTMorphingLabel: 490aa8e079f9247c7f3130f7d4b1be1d66677377
+  RaptureXML: b5c33c04c1a4adfd8ad0d5463329a31820596e82
+  SkyFloatingLabelTextField: ea2d0818757ff6263169f470a5dca4718700ba85
+  UIImage+SVG: 23a2edbb60b0f4c083068963086e309ebd8be592
+  Whisper: 18b574de21a089c0d664b115f26e0d9ccbbadbab
+
+COCOAPODS: 0.39.0

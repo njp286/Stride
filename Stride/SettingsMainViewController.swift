@@ -20,7 +20,6 @@ class SettingsMainViewController: UIViewController {
         
         setButtonAppearance(strideCalculatorButton)
         setButtonAppearance(updateButton)
-        initAppearance()
         navBar.leftBarButtonItem = UIBarButtonItem(title: "Home", style: .Plain, target: self, action: #selector(SettingsMainViewController.toHome))
         
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Gill Sans", size: 20)!]
@@ -33,13 +32,7 @@ class SettingsMainViewController: UIViewController {
     }
 
     
-    func initAppearance() -> Void {
-        
-        let background = CAGradientLayer().turquoiseColor()
-        background.frame = self.view.bounds
-        self.view.layer.insertSublayer(background, atIndex: 0)
-    }
-    
+ 
     func setButtonAppearance(button: UIButton){
         button.hidden = false
         button.layer.cornerRadius = 10

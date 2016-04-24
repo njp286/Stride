@@ -16,7 +16,6 @@ class InformationViewController: UIViewController, MFMailComposeViewControllerDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initAppearance()
         
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Gill Sans", size: 20)!]
         
@@ -27,12 +26,6 @@ class InformationViewController: UIViewController, MFMailComposeViewControllerDe
         
     }
     
-    func initAppearance() -> Void {
-        
-        let background = CAGradientLayer().turquoiseColor()
-        background.frame = self.view.bounds
-        self.view.layer.insertSublayer(background, atIndex: 0)
-    }
     
     
     //Nav bar function to dismiss view controller
