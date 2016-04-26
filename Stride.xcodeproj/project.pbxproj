@@ -82,6 +82,7 @@
 		7D6AE2131CCD780F00EE97E4 /* 4Man32.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D6AE1EF1CCD780F00EE97E4 /* 4Man32.mp3 */; };
 		7D6AE2141CCD780F00EE97E4 /* 4Man33.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D6AE1F01CCD780F00EE97E4 /* 4Man33.mp3 */; };
 		7D6AE2161CCD789A00EE97E4 /* 3Man22.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D6AE2151CCD789A00EE97E4 /* 3Man22.mp3 */; };
+		7D6AE2181CCDA43000EE97E4 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6AE2171CCDA43000EE97E4 /* StatisticsViewController.swift */; };
 		7D84D7A91CBD542500392A1F /* StrideCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7A81CBD542500392A1F /* StrideCalculatorViewController.swift */; };
 		7D84D7AC1CBD545800392A1F /* NewRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7AB1CBD545800392A1F /* NewRunViewController.swift */; };
 		7D84D7AE1CBD546C00392A1F /* PastRunsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7AD1CBD546C00392A1F /* PastRunsViewController.swift */; };
@@ -203,6 +204,7 @@
 		7D6AE1EF1CCD780F00EE97E4 /* 4Man32.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 4Man32.mp3; sourceTree = "<group>"; };
 		7D6AE1F01CCD780F00EE97E4 /* 4Man33.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 4Man33.mp3; sourceTree = "<group>"; };
 		7D6AE2151CCD789A00EE97E4 /* 3Man22.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3Man22.mp3; sourceTree = "<group>"; };
+		7D6AE2171CCDA43000EE97E4 /* StatisticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		7D770C601CCC7FDD003B6C9E /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		7D84D7A81CBD542500392A1F /* StrideCalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrideCalculatorViewController.swift; sourceTree = "<group>"; };
 		7D84D7AB1CBD545800392A1F /* NewRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRunViewController.swift; sourceTree = "<group>"; };
@@ -463,6 +465,7 @@
 		7DAD308E1CC7ED0100494EB9 /* Statistics */ = {
 			isa = PBXGroup;
 			children = (
+				7D6AE2171CCDA43000EE97E4 /* StatisticsViewController.swift */,
 			);
 			name = Statistics;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				7D5BAF101CB5CED200D5D373 /* Resources */,
 				826FF00695EADCE4C86BCEE2 /* Embed Pods Frameworks */,
 				8E42B94670B864B793449542 /* Copy Pods Resources */,
+				7D6AE2191CCDA59E00EE97E4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -726,6 +730,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		7D6AE2191CCDA59E00EE97E4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" bbb0982baebd1bf5759226ab0b9d75eb36470844 a317e87ae93aea57e54c2a7e613b881d9be443523b7ddb2a43979e8a1297632c";
+		};
 		826FF00695EADCE4C86BCEE2 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -770,6 +787,7 @@
 				7DAD30861CC7218C00494EB9 /* SettingsMainViewController.swift in Sources */,
 				7D84D7A91CBD542500392A1F /* StrideCalculatorViewController.swift in Sources */,
 				7DAD30941CC7EF5400494EB9 /* StrideCoachSettingsViewController.swift in Sources */,
+				7D6AE2181CCDA43000EE97E4 /* StatisticsViewController.swift in Sources */,
 				7D84D7B91CBEEA0A00392A1F /* Location.swift in Sources */,
 				7D84D7BF1CBEF30F00392A1F /* RunnerSettings.swift in Sources */,
 				7D84D7C31CC6B39300392A1F /* SetPaceViewController.swift in Sources */,

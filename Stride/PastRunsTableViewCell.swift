@@ -19,4 +19,5 @@ class PastRunsTableViewCell: UITableViewCell {
     @IBOutlet weak var goalPaceLabel: UILabel!
     
     
+    
 }

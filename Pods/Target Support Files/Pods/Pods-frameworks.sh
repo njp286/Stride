@@ -84,22 +84,26 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods/BEMSimpleLineGraph.framework"
   install_framework "Pods/CircleMenu.framework"
   install_framework "Pods/DZNEmptyDataSet.framework"
   install_framework "Pods/FSLineChart.framework"
   install_framework "Pods/Font_Awesome_Swift.framework"
   install_framework "Pods/LTMorphingLabel.framework"
+  install_framework "Pods/MMSegmentSlider.framework"
   install_framework "Pods/RaptureXML.framework"
   install_framework "Pods/SkyFloatingLabelTextField.framework"
   install_framework "Pods/UIImage_SVG.framework"
   install_framework "Pods/Whisper.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods/BEMSimpleLineGraph.framework"
   install_framework "Pods/CircleMenu.framework"
   install_framework "Pods/DZNEmptyDataSet.framework"
   install_framework "Pods/FSLineChart.framework"
   install_framework "Pods/Font_Awesome_Swift.framework"
   install_framework "Pods/LTMorphingLabel.framework"
+  install_framework "Pods/MMSegmentSlider.framework"
   install_framework "Pods/RaptureXML.framework"
   install_framework "Pods/SkyFloatingLabelTextField.framework"
   install_framework "Pods/UIImage_SVG.framework"

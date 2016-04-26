@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '7EEF6E0A28CE45E5C700D4B4'
+               BlueprintIdentifier = '3A0CD350A8AB084ACF4C1D02'
                BlueprintName = 'UIImage+SVG'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'UIImage_SVG.framework'>

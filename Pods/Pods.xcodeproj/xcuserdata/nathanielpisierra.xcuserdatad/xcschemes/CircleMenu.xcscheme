@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '5CD3EDDE6E25FCFB1033A829'
+               BlueprintIdentifier = 'F89061A0ED272CCC49695587'
                BlueprintName = 'CircleMenu'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'CircleMenu.framework'>

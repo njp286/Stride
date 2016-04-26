@@ -10,3 +10,9 @@ pod 'SkyFloatingLabelTextField', '~> 1.0'
 pod 'Font-Awesome-Swift', '~> 1.4.7'
 pod 'DZNEmptyDataSet'
 pod 'UIImage+SVG', '~> 0.1'
+
+pod 'BEMSimpleLineGraph'
+
+pod 'Fabric'
+pod 'Crashlytics'
+pod 'MMSegmentSlider', :git => 'https://github.com/MedvedevMax/MMSegmentSlider'

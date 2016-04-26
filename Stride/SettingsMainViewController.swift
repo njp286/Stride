@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Font_Awesome_Swift
 
 class SettingsMainViewController: UIViewController {
 
@@ -20,9 +21,17 @@ class SettingsMainViewController: UIViewController {
         
         setButtonAppearance(strideCalculatorButton)
         setButtonAppearance(updateButton)
-        navBar.leftBarButtonItem = UIBarButtonItem(title: "Home", style: .Plain, target: self, action: #selector(SettingsMainViewController.toHome))
         
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Gill Sans", size: 20)!]
+        
+        navBar.leftBarButtonItem = UIBarButtonItem(image: UIImage(icon: FAType.FAHome, size: CGSize(width: 35.0, height: 35.0), textColor: UIColor.whiteColor() , backgroundColor: UIColor.clearColor()), style: .Plain, target: self, action: #selector(SettingsMainViewController.toHome))
+        navBar.leftBarButtonItem?.tintColor = UIColor(red: 97/255.0, green: 171/255.0, blue: 201/255.0, alpha: 1.0)
+        
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 38))
+        imageView.contentMode = .Center
+        let logo = UIImage(named: "StrideHeader")
+        imageView.image = logo
+        self.navBar.titleView = imageView
         
     }
     

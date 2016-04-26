@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C44AD5533FE993C7D955153C'
+               BlueprintIdentifier = '1373ACAA126A9D2B86134F95'
                BlueprintName = 'FSLineChart'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'FSLineChart.framework'>

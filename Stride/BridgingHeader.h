@@ -10,5 +10,7 @@
 #define BridgingHeader_h
 
 #import "UIScrollView+EmptyDataSet.h"
+#import "BEMSimpleLineGraphView.h"
+
 
 #endif /* BridgingHeader_h */

@@ -11,12 +11,10 @@ import Foundation
 struct StrideCoachSettings {
     
     var isOn: Bool = true
-    var volume: Float = 1.0
     var coach: String = "colorMan3"
     
     init(dictionary: [String:AnyObject]) {
         isOn = dictionary[SCSettingsStruct.isOn] as! Bool
-        volume = dictionary[SCSettingsStruct.volume] as! Float
         coach = dictionary[SCSettingsStruct.coach] as! String
     }
     
@@ -32,7 +30,6 @@ struct StrideCoachSettings {
 struct SCSettingsStruct {
     
     static let isOn: String = "isOn"
-    static let volume: String = "volume"
     static let coach: String = "coach"
     
 }

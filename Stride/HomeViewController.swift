@@ -15,6 +15,12 @@ import Font_Awesome_Swift
 class HomeViewController: UIViewController, CircleMenuDelegate {
 
     
+    /////////////////////////////
+    //MARK --- Variables and UI//
+    /////////////////////////////
+    
+    
+    @IBOutlet var strideLogo: UIImageView!
     let items: [(icon: FAType, color: UIColor, board: String)] = [
         (FAType.FARoad, UIColor(red: 234/255.0, green: 116/255.0, blue: 116/255.0, alpha:  1.0), "currentRuns"),
         (FAType.FAHistory, UIColor(red: 234/255.0, green: 221/255.0, blue: 116/255.0, alpha:  1.0), "pastRuns"),
@@ -25,15 +31,22 @@ class HomeViewController: UIViewController, CircleMenuDelegate {
 
     
     @IBOutlet var myView: UIView!
+    var menuIsOpen: Bool = false
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    
+    ///////////////////////
+    ///   MARK -- VIEW  ///
+    ///////////////////////
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        menuIsOpen = false
         
         let button = CircleMenu(
             frame: CGRect(x: (myView.frame.width/2) - 25, y: ((2 * myView.frame.height)/3) - 25, width: 50, height: 50),
             normalIcon: "",
-            selectedIcon:"",
+            selectedIcon: "",
             buttonsCount: 5,
             duration: 0.5,
             distance: 120)
@@ -46,11 +59,9 @@ class HomeViewController: UIViewController, CircleMenuDelegate {
         button.layer.shadowOffset = CGSizeMake(1.5, 1.5);
         button.layer.shadowOpacity = 0.35;
         button.layer.shadowRadius = 0.0;
-        view.addSubview(button)
-        
-        
+        myView.addSubview(button)
+
     }
-    
         
     
     
@@ -92,5 +103,6 @@ class HomeViewController: UIViewController, CircleMenuDelegate {
         performSegueWithIdentifier(items[atIndex].board, sender: self)
     }
     
+
     
 }

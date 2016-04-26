@@ -68,12 +68,9 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         runActionButton.layer.shadowRadius = 0.0;
         runActionButton.layer.masksToBounds = false
         
-        
-        
-        
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 20))
-        imageView.contentMode = .ScaleAspectFit
-        let logo = UIImage(named: "STRIDEpng")
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 38))
+        imageView.contentMode = .Center
+        let logo = UIImage(named: "StrideHeader")
         imageView.image = logo
         self.navBar.titleView = imageView
     
@@ -100,6 +97,7 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         
      
         navBar.leftBarButtonItem = UIBarButtonItem(image: UIImage(icon: FAType.FAHome, size: CGSize(width: 35.0, height: 35.0), textColor: UIColor.whiteColor() , backgroundColor: UIColor.clearColor()), style: .Plain, target: self, action: #selector(NewRunViewController.toHome))
+        navBar.leftBarButtonItem?.tintColor = UIColor(red: 97/255.0, green: 171/255.0, blue: 201/255.0, alpha: 1.0)
         
         
         runActionButton.setTitle("Start Running", forState: .Normal)
@@ -287,7 +285,7 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             
             
             runActionButton.setTitle("End Run", forState: .Normal)
-            runActionButton.backgroundColor = UIColor.redColor()
+            runActionButton.backgroundColor = UIColor(red: 234/255.0, green: 116/255.0, blue: 116/255.0, alpha: 1.0)
 
         }
         //if 'end run'
@@ -353,10 +351,9 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
        
         
         ////////COACHING SHIT
-        //&&  totalTime > 60  && currentPaceSeconds > 0 && myGoalPace != "N/A"
-        if (seconds%20 == 0 && (isCoachNotSet || isCoachOn) ){
-            //let paceDiff = currentPaceSeconds - paceGoalSeconds
-            let paceDiff = 50 - Int(arc4random_uniform(100) + 1)
+        if (seconds%20 == 0 && (isCoachNotSet || isCoachOn) &&  totalTime > 60  && currentPaceSeconds > 0 && myGoalPace != "N/A" ){
+            let paceDiff = currentPaceSeconds - paceGoalSeconds
+            //let paceDiff = 50 - Int(arc4random_uniform(100) + 1)
             
             let randomNum = Int(arc4random_uniform(3) + 1)
             let ranNumStr = String(randomNum)

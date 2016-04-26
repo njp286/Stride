@@ -7,10 +7,10 @@
 //
 
 import UIKit
-import LTMorphingLabel
+import Font_Awesome_Swift
 
 
-class StrideCoachSettingsViewController: UIViewController, LTMorphingLabelDelegate {
+class StrideCoachSettingsViewController: UIViewController {
     
 
     
@@ -20,12 +20,10 @@ class StrideCoachSettingsViewController: UIViewController, LTMorphingLabelDelega
     
     @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var strideCoachSwitch: UISwitch!
-    @IBOutlet weak var volumeSlider: UISlider!
     @IBOutlet weak var coach1Button: UIButton!
     
     @IBOutlet weak var intensitySlider: UISlider!
     
-    @IBOutlet var coachName: LTMorphingLabel!
     @IBOutlet weak var coach2Button: UIButton!
     
     var numbers = [1, 2, 3, 4]  //Add your values here
@@ -34,6 +32,7 @@ class StrideCoachSettingsViewController: UIViewController, LTMorphingLabelDelega
     var coachGender = "Man"
     var coachNumber = "3"
     
+    var sliderImages = ["Hard-Ass", "Difficult", "Forgiving", "Sweet"]
     
     //////////////////////////////
     /// MARK -- Initial View /////
@@ -43,15 +42,18 @@ class StrideCoachSettingsViewController: UIViewController, LTMorphingLabelDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        coachName.delegate = self
-        coachName.textAlignment = .Center
-       // self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Gill Sans", size: 20)!]
-        
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 38))
-        imageView.contentMode = .ScaleAspectFit
-        let image = UIImage(named: "STRIDEpng")
+        imageView.contentMode = .Center
+        let image = UIImage(named: "StrideLogoTitle")
         imageView.image = image
         navigationItem.titleView = imageView
+        
+        
+        coach1Button.contentMode = .ScaleAspectFit
+        coach2Button.contentMode = .ScaleAspectFit
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(icon: FAType.FAChevronLeft, size: CGSize(width: 35.0, height: 35.0), textColor: UIColor.whiteColor() , backgroundColor: UIColor.clearColor()), style: .Plain, target: self, action: #selector(StrideCoachSettingsViewController.backPressed))
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor(red: 97/255.0, green: 171/255.0, blue: 201/255.0, alpha: 1.0)
         
         
         coachSetUP()
@@ -64,11 +66,6 @@ class StrideCoachSettingsViewController: UIViewController, LTMorphingLabelDelega
     
     
     func coachSetUP(){
-        volumeSlider.continuous = true
-        volumeSlider.maximumValue = 1.0
-        volumeSlider.minimumValue = 0.0
-
-        
         intensitySlider.continuous = true
         let numberOfSteps = Float(numbers.count - 1)
         intensitySlider.maximumValue = numberOfSteps;
@@ -77,17 +74,16 @@ class StrideCoachSettingsViewController: UIViewController, LTMorphingLabelDelega
 
     
         if StrideCoachSettingsClass.sharedInstance().scSettings.isEmpty {
-            volumeSlider.setValue(0.7, animated: false)
             strideCoachSwitch.setOn(true, animated: false)
             coach1Button.setImage(UIImage(named: "colorMan3"), forState: .Normal)
             coach2Button.setImage(UIImage(named: "grayWoman3"), forState: .Normal)
             coachGender = "Man"
             coachNumber = "3"
             intensitySlider.setValue(2.0, animated: false)
+            intensitySlider.setThumbImage(UIImage(named: sliderImages[2]), forState: .Normal)
             
         }
         else{
-            volumeSlider.setValue((StrideCoachSettingsClass.sharedInstance().scSettings.first?.volume)!, animated: true)
             strideCoachSwitch.setOn((StrideCoachSettingsClass.sharedInstance().scSettings.first?.isOn)!, animated: true)
             
             let coachNamer = (StrideCoachSettingsClass.sharedInstance().scSettings.first?.coach)!
@@ -115,25 +111,18 @@ class StrideCoachSettingsViewController: UIViewController, LTMorphingLabelDelega
             value.append(num)
             coachNumber = value
             let flValue = Float(value)! - 1
-
+            let intVal = Int(value)
+            intensitySlider.setThumbImage(UIImage(named: sliderImages[intVal! - 1]), forState: .Normal)
    
             intensitySlider.value = flValue
         }
-        if coachGender == "Man" {
-            if let effect = LTMorphingEffect(rawValue: 5) {
-                coachName.morphingEffect = effect
-                coachName.text = "Bryan"
-            }
-            
-        }
-        else{
-            if let effect = LTMorphingEffect(rawValue: 6) {
-                coachName.morphingEffect = effect
-                coachName.text = "Whitney"
-            }
-        }
+
     }
     
+    func backPressed(){
+        navigationController?.popViewControllerAnimated(true)
+        
+    }
     
     ////////////////////////
     /// MARK -- save ///////
@@ -145,7 +134,6 @@ class StrideCoachSettingsViewController: UIViewController, LTMorphingLabelDelega
         
         var coachSettings = [String : AnyObject]()
         coachSettings[SCSettingsStruct.isOn] = strideCoachSwitch.on
-        coachSettings[SCSettingsStruct.volume] = volumeSlider.value
         coachSettings[SCSettingsStruct.coach] =  myCoach
                 
         let updatedSettings = StrideCoachSettings(dictionary: coachSettings)
@@ -164,12 +152,10 @@ class StrideCoachSettingsViewController: UIViewController, LTMorphingLabelDelega
     //coach turned on/off
     @IBAction func scSwitched(sender: AnyObject) {
         navBar.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .Plain, target: self, action: #selector(StrideCoachSettingsViewController.saveChanges))
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor(red: 97/255.0, green: 171/255.0, blue: 201/255.0, alpha: 1.0)
     }
    
-    //volume changed
-    @IBAction func volumeChanged(sender: AnyObject) {
-        navBar.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .Plain, target: self, action: #selector(StrideCoachSettingsViewController.saveChanges))
-    }
+
     
     //male coach pressed
     @IBAction func coach1ButtonPressed(sender: AnyObject) {
@@ -182,10 +168,7 @@ class StrideCoachSettingsViewController: UIViewController, LTMorphingLabelDelega
             coach2Button.setImage(UIImage(named: woman), forState: .Normal)
         
             navBar.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .Plain, target: self, action: #selector(StrideCoachSettingsViewController.saveChanges))
-            if let effect = LTMorphingEffect(rawValue: 5) {
-                coachName.morphingEffect = effect
-            }
-            coachName.text = "Bryan"
+            self.navigationItem.rightBarButtonItem?.tintColor = UIColor(red: 97/255.0, green: 171/255.0, blue: 201/255.0, alpha: 1.0)
         
     }
     
@@ -200,10 +183,8 @@ class StrideCoachSettingsViewController: UIViewController, LTMorphingLabelDelega
             coach2Button.setImage(UIImage(named: woman), forState: .Normal)
         
             navBar.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .Plain, target: self, action: #selector(StrideCoachSettingsViewController.saveChanges))
-            if let effect = LTMorphingEffect(rawValue: 6) {
-                coachName.morphingEffect = effect
-            }
-            coachName.text = "Whitney"
+            self.navigationItem.rightBarButtonItem?.tintColor = UIColor(red: 97/255.0, green: 171/255.0, blue: 201/255.0, alpha: 1.0)
+        
     }
     
     //intensity slider changed
@@ -216,6 +197,7 @@ class StrideCoachSettingsViewController: UIViewController, LTMorphingLabelDelega
         }
         coachNumber = String(number)
         
+        intensitySlider.setThumbImage(UIImage(named: sliderImages[number - 1]), forState: .Normal)
         if coachGender == "Man" {
             coach1ButtonPressed(sender)
             
@@ -226,16 +208,4 @@ class StrideCoachSettingsViewController: UIViewController, LTMorphingLabelDelega
         
     }
     
-    func morphingDidStart(label: LTMorphingLabel) {
-        
-    }
-    
-    func morphingDidComplete(label: LTMorphingLabel) {
-        
-    }
-    
-    func morphingOnProgress(label: LTMorphingLabel, progress: Float) {
-        
-    }
-
 }

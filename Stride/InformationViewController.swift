@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import Font_Awesome_Swift
 
 class InformationViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
@@ -17,11 +18,22 @@ class InformationViewController: UIViewController, MFMailComposeViewControllerDe
         super.viewDidLoad()
         
         
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Gill Sans", size: 20)!]
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 10, width: 38, height: 38))
+        imageView.contentMode = .Center
+        let logo = UIImage(named: "StrideHeader")
+        imageView.image = logo
+        self.navBar.titleView = imageView
         
-        navBar.leftBarButtonItem = UIBarButtonItem(title: "Home", style: .Plain, target: self, action: #selector(InformationViewController.toHome))
+
         
-        navBar.rightBarButtonItem = UIBarButtonItem(title: "Contact Me!", style: .Plain, target: self, action: #selector(InformationViewController.composeEmail))
+        navBar.leftBarButtonItem = UIBarButtonItem(image: UIImage(icon: FAType.FAHome, size: CGSize(width: 35.0, height: 35.0), textColor: UIColor.whiteColor() , backgroundColor: UIColor.clearColor()), style: .Plain, target: self, action: #selector(InformationViewController.toHome))
+        navBar.leftBarButtonItem?.tintColor = UIColor(red: 97/255.0, green: 171/255.0, blue: 201/255.0, alpha: 1.0)
+        
+    
+        
+        
+        navBar.rightBarButtonItem = UIBarButtonItem(image: UIImage(icon: FAType.FAEnvelopeO, size: CGSize(width: 35.0, height: 35.0), textColor: UIColor.whiteColor() , backgroundColor: UIColor.clearColor()), style: .Plain, target: self, action: #selector(InformationViewController.composeEmail))
+        navBar.rightBarButtonItem?.tintColor = UIColor(red: 97/255.0, green: 171/255.0, blue: 201/255.0, alpha: 1.0)
         
         
     }

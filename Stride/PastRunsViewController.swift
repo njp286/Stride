@@ -26,13 +26,22 @@ class PastRunsViewController: UIViewController, UITableViewDelegate, UITableView
         
         tableView.tableFooterView = UIView()
         
-        navBar.leftBarButtonItem = UIBarButtonItem(image: UIImage(icon: FAType.FAHome, size: CGSize(width: 35.0, height: 35.0), textColor: UIColor.whiteColor() , backgroundColor: UIColor.clearColor()), style: .Plain, target: self, action: #selector(NewRunViewController.toHome))
+        navBar.leftBarButtonItem = UIBarButtonItem(image: UIImage(icon: FAType.FAHome, size: CGSize(width: 35.0, height: 35.0), textColor: UIColor.whiteColor() , backgroundColor: UIColor.clearColor()), style: .Plain, target: self, action: #selector(PastRunsViewController.toHome))
+        navBar.leftBarButtonItem?.tintColor = UIColor(red: 97/255.0, green: 171/255.0, blue: 201/255.0, alpha: 1.0)
+        
+ 
         
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Gill Sans", size: 20)!]
+
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 10, width: 38, height: 38))
+        imageView.contentMode = .Center
+        let logo = UIImage(named: "StrideHeader")
+        imageView.image = logo
+        self.navBar.titleView = imageView
+        
         tableView.reloadData()
     }
     
@@ -77,6 +86,10 @@ class PastRunsViewController: UIViewController, UITableViewDelegate, UITableView
         
         
         cell.mapImage.image = runObject.map
+        cell.mapImage.layer.cornerRadius = cell.mapImage.frame.height/2
+        cell.mapImage.layer.borderColor = UIColor(red: 5/255.0, green: 46/255.0, blue: 56/255.0, alpha: 1.0).CGColor
+        cell.mapImage.layer.borderWidth = 2.0
+        cell.mapImage.layer.masksToBounds = true
         cell.dateLabel.text = formatter.stringFromDate(runObject.timestamp)
         cell.distanceLabel.text = runObject.distance
         cell.paceLabel.text = runObject.pace
@@ -89,7 +102,7 @@ class PastRunsViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("PastRunDetailViewController") as! PastRunDetailViewController
         detailController.run = myRuns.sharedInstance().at(indexPath.row)
-        self.presentViewController(detailController, animated: true, completion: nil) 
+        self.navigationController!.pushViewController(detailController, animated: true)
     }
     
     //allow deletion of runs

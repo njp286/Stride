@@ -1,0 +1,6 @@
+framework module MMSegmentSlider {
+  umbrella header "MMSegmentSlider-umbrella.h"
+
+  export *
+  module * { export * }
+}

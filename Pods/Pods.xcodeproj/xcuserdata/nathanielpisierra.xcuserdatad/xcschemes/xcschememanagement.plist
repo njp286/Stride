@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>BEMSimpleLineGraph.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>CircleMenu.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -30,6 +35,11 @@
 			<false/>
 		</dict>
 		<key>LTMorphingLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MMSegmentSlider.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -67,12 +77,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1621297B18B2750F3DFC6C757295E008</key>
+		<key>16FB872D0D2D4BA0F378AB34D47CF95F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>16FB872D0D2D4BA0F378AB34D47CF95F</key>
+		<key>1E026F7A81035385286DAD3DC8C4E57F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,12 +92,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>5AF17F57185C1B6631E13396ECDDD72E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6218FE2B70B49A1A96C5DBEEF8395802</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8FB26C953B319561335633AC4552EB51</key>
+		<key>78DD729E6F6BE3C1326232CD5DFFFBB7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,22 +112,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B111D5325803C0AC63C71B8D7D9953CE</key>
+		<key>A40AE3DAAB92CB2DE64CD9B4D75AEA7D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C200FC8C77A3DEA3DAD72837FABAF619</key>
+		<key>CF81B596CF99BF42001379EC76EE1D2C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D574696F376A6DB4D162B53761DCABCC</key>
+		<key>D2F9EE6815EC3616592BB21DFE654BBE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>E5103AA3B86FD939D2C77DC3043B8AC4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EF66BA4468A34C50F326E21CBA156DC8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
