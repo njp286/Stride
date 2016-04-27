@@ -89,7 +89,6 @@
 		7D84D7B01CBD548D00392A1F /* PastRunDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7AF1CBD548D00392A1F /* PastRunDetailViewController.swift */; };
 		7D84D7B21CBD561200392A1F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7B11CBD561200392A1F /* HomeViewController.swift */; };
 		7D84D7B71CBEE9F800392A1F /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7B61CBEE9F800392A1F /* Run.swift */; };
-		7D84D7B91CBEEA0A00392A1F /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7B81CBEEA0A00392A1F /* Location.swift */; };
 		7D84D7BD1CBEF07600392A1F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D84D7BC1CBEF07600392A1F /* MapKit.framework */; };
 		7D84D7BF1CBEF30F00392A1F /* RunnerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7BE1CBEF30F00392A1F /* RunnerSettings.swift */; };
 		7D84D7C31CC6B39300392A1F /* SetPaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D84D7C21CC6B39300392A1F /* SetPaceViewController.swift */; };
@@ -100,6 +99,9 @@
 		7DAD30941CC7EF5400494EB9 /* StrideCoachSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAD30931CC7EF5400494EB9 /* StrideCoachSettingsViewController.swift */; };
 		7DAD309C1CC7F7DB00494EB9 /* StrideCoachSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAD309B1CC7F7DB00494EB9 /* StrideCoachSettings.swift */; };
 		7DD3EE831CCB0590009F7B13 /* 1Woman13.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7DD3EE821CCB0590009F7B13 /* 1Woman13.mp3 */; };
+		7DD58DB81CD0267900917788 /* ImagePersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD58DB71CD0267900917788 /* ImagePersistance.swift */; };
+		7DD58DBA1CD028B300917788 /* Runs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD58DB91CD028B300917788 /* Runs.swift */; };
+		7DD58DBC1CD03E5300917788 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD58DBB1CD03E5300917788 /* User.swift */; };
 		E14EAAA5BF72B519FB3FA368 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB47491F37EB42CF4484E55 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -212,7 +214,6 @@
 		7D84D7AF1CBD548D00392A1F /* PastRunDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastRunDetailViewController.swift; sourceTree = "<group>"; };
 		7D84D7B11CBD561200392A1F /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7D84D7B61CBEE9F800392A1F /* Run.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
-		7D84D7B81CBEEA0A00392A1F /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		7D84D7BC1CBEF07600392A1F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7D84D7BE1CBEF30F00392A1F /* RunnerSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunnerSettings.swift; sourceTree = "<group>"; };
 		7D84D7C21CC6B39300392A1F /* SetPaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetPaceViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +224,9 @@
 		7DAD30931CC7EF5400494EB9 /* StrideCoachSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrideCoachSettingsViewController.swift; sourceTree = "<group>"; };
 		7DAD309B1CC7F7DB00494EB9 /* StrideCoachSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrideCoachSettings.swift; sourceTree = "<group>"; };
 		7DD3EE821CCB0590009F7B13 /* 1Woman13.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1Woman13.mp3; sourceTree = "<group>"; };
+		7DD58DB71CD0267900917788 /* ImagePersistance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePersistance.swift; sourceTree = "<group>"; };
+		7DD58DB91CD028B300917788 /* Runs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Runs.swift; sourceTree = "<group>"; };
+		7DD58DBB1CD03E5300917788 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7E100D5FD8BEA36739CAA7D4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -410,10 +414,12 @@
 		7D84D7B51CBEE9ED00392A1F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7DD58DB91CD028B300917788 /* Runs.swift */,
 				7D84D7B61CBEE9F800392A1F /* Run.swift */,
-				7D84D7B81CBEEA0A00392A1F /* Location.swift */,
 				7D84D7BE1CBEF30F00392A1F /* RunnerSettings.swift */,
 				7DAD309B1CC7F7DB00494EB9 /* StrideCoachSettings.swift */,
+				7DD58DB71CD0267900917788 /* ImagePersistance.swift */,
+				7DD58DBB1CD03E5300917788 /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -781,14 +787,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D84D7AE1CBD546C00392A1F /* PastRunsViewController.swift in Sources */,
+				7DD58DB81CD0267900917788 /* ImagePersistance.swift in Sources */,
 				7D84D7B71CBEE9F800392A1F /* Run.swift in Sources */,
 				7DAD30881CC7230400494EB9 /* StrideCalcInitViewController.swift in Sources */,
 				7D5BAF161CB5CED200D5D373 /* AppDelegate.swift in Sources */,
 				7DAD30861CC7218C00494EB9 /* SettingsMainViewController.swift in Sources */,
 				7D84D7A91CBD542500392A1F /* StrideCalculatorViewController.swift in Sources */,
 				7DAD30941CC7EF5400494EB9 /* StrideCoachSettingsViewController.swift in Sources */,
+				7DD58DBC1CD03E5300917788 /* User.swift in Sources */,
+				7DD58DBA1CD028B300917788 /* Runs.swift in Sources */,
 				7D6AE2181CCDA43000EE97E4 /* StatisticsViewController.swift in Sources */,
-				7D84D7B91CBEEA0A00392A1F /* Location.swift in Sources */,
 				7D84D7BF1CBEF30F00392A1F /* RunnerSettings.swift in Sources */,
 				7D84D7C31CC6B39300392A1F /* SetPaceViewController.swift in Sources */,
 				7D84D7AC1CBD545800392A1F /* NewRunViewController.swift in Sources */,

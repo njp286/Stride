@@ -15,12 +15,20 @@ import Crashlytics
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    var runsPath : String {
+        let manager = NSFileManager.defaultManager()
+        let url = manager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+        return url.URLByAppendingPathComponent("runArray").path!
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
         Fabric.with([Crashlytics.self])
+        
+        //Load runs
+        User.sharedInstance().runsArray = NSKeyedUnarchiver.unarchiveObjectWithFile(runsPath) as? [Run] ?? [Run]()
         
         //set saved pace/
         if NSUserDefaults.standardUserDefaults().integerForKey(RunSettingsStruct.mileTime) != 0 {
@@ -92,6 +100,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSUserDefaults.standardUserDefaults().setValue(StrideCoachSettingsClass.sharedInstance().scSettings.first?.coach, forKey: SCSettingsStruct.coach)
             print("saved coach")
         }
+        
+        NSKeyedArchiver.archiveRootObject(User.sharedInstance().runsArray, toFile: runsPath)
+
     }
 
     func applicationWillEnterForeground(application: UIApplication) {

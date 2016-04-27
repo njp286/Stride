@@ -12,11 +12,10 @@ import Font_Awesome_Swift
 
 class StatisticsViewController: UIViewController, BEMSimpleLineGraphDelegate, BEMSimpleLineGraphDataSource {
 
+    @IBOutlet weak var paceLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var simpleLineGraphPace: BEMSimpleLineGraphView!
     @IBOutlet weak var simpleLineGraphDistance: BEMSimpleLineGraphView!
-    @IBOutlet var noStatsLabel: UILabel!
-    @IBOutlet var noStatsTitle: UILabel!
-    @IBOutlet var noStatsImage: UIImageView!
     var dates = NSMutableArray()
     var paces = NSMutableArray()
     var distance = NSMutableArray()
@@ -44,18 +43,54 @@ class StatisticsViewController: UIViewController, BEMSimpleLineGraphDelegate, BE
         
 
         updateArrays() { (count) in
-            if count != 0{
-                self.noStatsImage.removeFromSuperview()
-                self.noStatsLabel.removeFromSuperview()
-                self.noStatsTitle.removeFromSuperview()
+            if self.dates.count > 2{
+
                 self.setLineGraph(self.simpleLineGraphDistance)
                 self.setLineGraph(self.simpleLineGraphPace)
             }
             else{
                 self.simpleLineGraphDistance.removeFromSuperview()
                 self.simpleLineGraphPace.removeFromSuperview()
+                self.distanceLabel.removeFromSuperview()
+                self.paceLabel.removeFromSuperview()
+                
+                
+                // Tell them you must go on 3 runs to display graphs
+                let imageName = "RunnerGray"
+                let image = UIImage(named: imageName)
+                let imageView = UIImageView(image: image!)
+                
+                let height = image?.size.height
+                let width = image?.size.width
+                
+                let viewCenterX = self.view.frame.width/2
+                let viewCenterY = self.view.frame.height/2
+                
+                imageView.frame = CGRect(x: 0, y: 0, width: width!, height: height!)
+                imageView.center = CGPointMake(viewCenterX, 2*viewCenterY/3)
+                self.view.addSubview(imageView)
+                
+                //Add Title
+                
+                let title = UILabel(frame: CGRectMake(0, 0, self.view.frame.width - 20, 40))
+                title.center = CGPointMake(viewCenterX, viewCenterY + height!/4 )
+                title.textAlignment = NSTextAlignment.Center
+                title.textColor = UIColor(red: 160/255.0, green: 160/255.0, blue: 149/255.0, alpha: 1.0)
+                title.font = UIFont(name: "Gill Sans", size: 30)
+                title.text = "Not enough data."
+                self.view.addSubview(title)
 
-                self.noStatsImage.image = UIImage(named: "RunnerGray")
+                
+                //Add Label
+                let label = UILabel(frame: CGRectMake(0, 0, self.view.frame.width - 50, 60))
+                label.center = CGPointMake(viewCenterX, viewCenterY + height!/2 )
+                label.textAlignment = NSTextAlignment.Center
+                label.numberOfLines = 3
+                label.textColor = UIColor(red: 160/255.0, green: 160/255.0, blue: 149/255.0, alpha: 1.0)
+                label.font = UIFont(name: "Gill Sans", size: 18)
+                label.lineBreakMode = .ByWordWrapping
+                label.text = "You must go on 3 runs before you can display statistics."
+                self.view.addSubview(label)
             }
         }
     }
@@ -81,8 +116,7 @@ class StatisticsViewController: UIViewController, BEMSimpleLineGraphDelegate, BE
     }
     
     func updateArrays(completionHandler: (count: Int) -> Void){
-        let count = myRuns.sharedInstance().runsArray.count
-        print("count: ", count)
+        let count = User.sharedInstance().runsArray.count
         if count > 0 {
             for i in 0 ..< count {
                 //get date
@@ -91,28 +125,34 @@ class StatisticsViewController: UIViewController, BEMSimpleLineGraphDelegate, BE
                 formatter.timeStyle = .NoStyle
                 
                 
-                let runObject = myRuns.sharedInstance().at(i)
+                let runObject = User.sharedInstance().at(i)
                 let dateToAdd = formatter.stringFromDate(runObject.timestamp)
-                print(dateToAdd)
                 dates.addObject(dateToAdd)
                 
                 //get distance
-                distance.addObject(Float(myRuns.sharedInstance().at(i).distance)!)
+                distance.addObject(Float(User.sharedInstance().at(i).distance)!)
                 
                 //TODO  PACE
-                var pace = myRuns.sharedInstance().at(i).pace
-                let range = pace.rangeOfString("/mile")
-                let index = range?.startIndex
-                pace = pace.substringToIndex(index!)
-                let char = pace.rangeOfString(":")
-                let cIndex = char?.startIndex
-                let mins = pace.substringToIndex(cIndex!)
-                let secs = pace.substringFromIndex((cIndex?.successor())!)
+                var pace = User.sharedInstance().at(i).pace
                 
-                let paceInSeconds = Int(mins)!*60 + Int(secs)!
-                let overAllPace = Float(paceInSeconds)/60.0
-                
-                paces.addObject(overAllPace)
+                if pace == "--" {
+                    dates.removeLastObject()
+                    distance.removeLastObject()
+                }
+                else{
+                    let range = pace.rangeOfString("/mile")
+                    let index = range?.startIndex
+                    pace = pace.substringToIndex(index!)
+                    let char = pace.rangeOfString(":")
+                    let cIndex = char?.startIndex
+                    let mins = pace.substringToIndex(cIndex!)
+                    let secs = pace.substringFromIndex((cIndex?.successor())!)
+                    
+                    let paceInSeconds = Int(mins)!*60 + Int(secs)!
+                    let overAllPace = Float(paceInSeconds)/60.0
+                    
+                    paces.addObject(overAllPace)
+                }
                 
             }
             completionHandler(count: count)

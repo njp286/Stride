@@ -14,6 +14,9 @@ class InformationViewController: UIViewController, MFMailComposeViewControllerDe
 
     @IBOutlet weak var navBar: UINavigationItem!
     
+    @IBOutlet weak var copyrightLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,6 +26,7 @@ class InformationViewController: UIViewController, MFMailComposeViewControllerDe
         let logo = UIImage(named: "StrideHeader")
         imageView.image = logo
         self.navBar.titleView = imageView
+        copyrightLabel.setFAText(prefixText: "", icon: FAType.FACopyright, postfixText: " 2016 Nathaniel PiSierra", size: 12.0)
         
 
         
@@ -49,7 +53,7 @@ class InformationViewController: UIViewController, MFMailComposeViewControllerDe
         let picker = MFMailComposeViewController()
         picker.mailComposeDelegate = self
         picker.setSubject("Stride Comment")
-        picker.setToRecipients(["stride-appsolutely@gmail.com"])
+        picker.setToRecipients(["stride.appsolutely@gmail.com"])
         
         self.presentViewController(picker, animated: true, completion: nil)
         

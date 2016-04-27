@@ -66,7 +66,7 @@ class PastRunsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return myRuns.sharedInstance().count()
+        return User.sharedInstance().count()
     }
     
 
@@ -78,14 +78,14 @@ class PastRunsViewController: UIViewController, UITableViewDelegate, UITableView
         cell.backgroundColor = UIColor(red: (255/255.0), green: (255/255.0), blue: (255/255.0), alpha: 0.3)
 
         
-        let runObject = myRuns.sharedInstance().at(indexPath.row)
+        let runObject = User.sharedInstance().at(indexPath.row)
         
         let formatter = NSDateFormatter()
         formatter.dateStyle = .MediumStyle
         formatter.timeStyle = .NoStyle
         
         
-        cell.mapImage.image = runObject.map
+        cell.mapImage.image = ImagePersistance.sharedInstance().imageWithIdentifier(String(runObject.timestamp))
         cell.mapImage.layer.cornerRadius = cell.mapImage.frame.height/2
         cell.mapImage.layer.borderColor = UIColor(red: 5/255.0, green: 46/255.0, blue: 56/255.0, alpha: 1.0).CGColor
         cell.mapImage.layer.borderWidth = 2.0
@@ -101,7 +101,7 @@ class PastRunsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("PastRunDetailViewController") as! PastRunDetailViewController
-        detailController.run = myRuns.sharedInstance().at(indexPath.row)
+        detailController.run = User.sharedInstance().at(indexPath.row)
         self.navigationController!.pushViewController(detailController, animated: true)
     }
     
@@ -115,8 +115,9 @@ class PastRunsViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             
-            myRuns.sharedInstance().delete(indexPath.row)
+            User.sharedInstance().deleteFromRuns(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            NSKeyedArchiver.archiveRootObject(User.sharedInstance().runsArray, toFile: runsPath)
             
         } 
     }
@@ -171,6 +172,12 @@ class PastRunsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func spaceHeightForEmptyDataSet(scrollView: UIScrollView!) -> CGFloat {
         return 20.0
+    }
+    
+    var runsPath : String {
+        let manager = NSFileManager.defaultManager()
+        let url = manager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+        return url.URLByAppendingPathComponent("runArray").path!
     }
     
 

@@ -11,6 +11,7 @@ import CoreLocation
 import MapKit
 import AVFoundation
 import Font_Awesome_Swift
+import Whisper
 
 
 class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, AVAudioPlayerDelegate {
@@ -45,7 +46,6 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     var coachIntensity: String!
     var coachGender: String!
     
-    
     var annotations = [MKPointAnnotation]()
     var locations = [CLLocation]()
     lazy var timer = NSTimer()
@@ -79,6 +79,14 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         getPace()
         getCoachInfo()
         
+        
+        
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
         distanceLabel.hidden = true
         paceLabel.hidden = true
         goalPaceLabel.hidden = true
@@ -89,13 +97,6 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         goalPaceLabelLabel.hidden = true
         
         
-    }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-     
         navBar.leftBarButtonItem = UIBarButtonItem(image: UIImage(icon: FAType.FAHome, size: CGSize(width: 35.0, height: 35.0), textColor: UIColor.whiteColor() , backgroundColor: UIColor.clearColor()), style: .Plain, target: self, action: #selector(NewRunViewController.toHome))
         navBar.leftBarButtonItem?.tintColor = UIColor(red: 97/255.0, green: 171/255.0, blue: 201/255.0, alpha: 1.0)
         
@@ -111,8 +112,7 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             //error
         }
 
-       ///PERHAPS AUDIO SHIT
-        
+
     }
     
  
@@ -223,11 +223,21 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         stopLocationUpdates()
         //edit map to show all points
         fixMap()
+        navBar.leftBarButtonItem?.enabled = false
+        
+        let message = Message(title: "Saving...", textColor: UIColor(red: 97/255.0, green: 171/255.0, blue: 201/255.0, alpha:  1.0), backgroundColor: UIColor(red: 5/255.0, green: 46/255.0, blue: 56/255.0, alpha: 1.0), images: nil)
+        Whisper(message, to: self.navigationController!)
+        
         let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 2 * Int64(NSEC_PER_SEC))
         dispatch_after(time, dispatch_get_main_queue()) {
-            self.saveRun()
+            self.saveRun() { error in
+                if error == nil {
+                    self.navBar.leftBarButtonItem?.enabled = true
+                    let message = Message(title: "Saved!", textColor: UIColor(red: 97/255.0, green: 171/255.0, blue: 201/255.0, alpha:  1.0), backgroundColor: UIColor(red: 5/255.0, green: 46/255.0, blue: 56/255.0, alpha: 1.0), images: nil)
+                    Whisper(message, to: self.navigationController!)
+                }
+            }
         }
-        
     }
     
     
@@ -245,48 +255,101 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     
     //save run
-    func saveRun() {
+    func saveRun(completionHandler: (error:String?) -> Void) {
         generateMapImage(){ (image, error) in
             var thisRun = [String : AnyObject]()
-            thisRun[RunningCategories.distance] = self.distanceLabel.text!
-            thisRun[RunningCategories.duration] = self.timeLabel.text!
-            thisRun[RunningCategories.goalPace] = self.myGoalPace
-            thisRun[RunningCategories.pace] = self.paceLabel.text!
-            thisRun[RunningCategories.timestamp] = NSDate()
-            thisRun[RunningCategories.map] = image
+            thisRun[Run.RunningCategories.distance] = self.distanceLabel.text!
+            thisRun[Run.RunningCategories.duration] = self.timeLabel.text!
+            thisRun[Run.RunningCategories.goalPace] = self.myGoalPace
+            thisRun[Run.RunningCategories.pace] = self.paceLabel.text!
+            thisRun[Run.RunningCategories.timestamp] = NSDate()
             
             //add to runs array
-            myRuns.sharedInstance().add(Run(dictionary: thisRun))
-
+            ImagePersistance.sharedInstance().storeImage(image, withIdentifier: String(thisRun[Run.RunningCategories.timestamp]))
+            User.sharedInstance().add(Run.init(dictionary: thisRun))
+            NSKeyedArchiver.archiveRootObject(User.sharedInstance().runsArray, toFile: self.runsPath)
+            completionHandler(error: nil)
         }
         
     }
     
+    var runsPath : String {
+        let manager = NSFileManager.defaultManager()
+        let url = manager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+        return url.URLByAppendingPathComponent("runArray").path!
+    }
     
+    
+    func noGoalPaceAlert( completionHandler: (toDo: String?) -> Void){
+        //create alert for no goal pace
+        let alert = UIAlertController(title: "Heads Up", message: "You dont have a goal pace set! To use Stride to its full potential you should set a goal pace  for yourself.", preferredStyle: .Alert)
+        
+        //ignore alert and continue
+        alert.addAction(UIAlertAction(title: "Continue without a goal pace", style: UIAlertActionStyle.Default, handler:  {(action: UIAlertAction!) in
+            
+            alert.dismissViewControllerAnimated(true, completion: nil)
+            
+        }))
+        
+        //snooze pressed in alert
+        alert.addAction(UIAlertAction(title: "Set goal pace!", style: UIAlertActionStyle.Cancel) { (action: UIAlertAction!)  in
+            //dismiss alert
+            
+            completionHandler(toDo: "go")
+            alert.dismissViewControllerAnimated(true, completion: nil)
+        })
+        
+        //present alarm alert
+        presentViewController(alert, animated: true, completion: nil)
+
+    }
+    
+    
+    func start(){
+        
+        distanceLabel.hidden = false
+        paceLabel.hidden = false
+        goalPaceLabel.hidden = false
+        timeLabel.hidden = false
+        
+        distanceLabelLabel.hidden = false
+        paceLabelLabel.hidden = false
+        timeLabelLabel.hidden = false
+        goalPaceLabelLabel.hidden = false
+        
+        
+        
+        locations.removeAll(keepCapacity: false)
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(eachSecond), userInfo: nil, repeats: true)
+        startLocationUpdates()
+        
+        runActionButton.setTitle("End Run", forState: .Normal)
+        runActionButton.backgroundColor = UIColor(red: 234/255.0, green: 116/255.0, blue: 116/255.0, alpha: 1.0)
+        
+    }
+
+    //Running button Pressed
     //Running button Pressed
     @IBAction func runActionPressed(sender: AnyObject) {
         //if resume run or start running
         if(runActionButton.currentTitle == "Start Running"){
-            locations.removeAll(keepCapacity: false)
-            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(eachSecond), userInfo: nil, repeats: true)
-            startLocationUpdates()
+            if(myGoalPace == "N/A"){
+                noGoalPaceAlert() { toDo in
+                    if toDo == nil {
+                        self.start()
+                    }
+                    else{
+                        
+                        let viewController = self.storyboard!.instantiateViewControllerWithIdentifier("SetPaceViewController") as! SetPaceViewController
+                        self.presentViewController(viewController, animated: true, completion:  nil)
+                        
+                    }
+                }
+            }
+            else{
+                start()
+            }
             
-            distanceLabel.hidden = false
-            paceLabel.hidden = false
-            goalPaceLabel.hidden = false
-            timeLabel.hidden = false
-            
-            distanceLabelLabel.hidden = false
-            paceLabelLabel.hidden = false
-            timeLabelLabel.hidden = false
-            goalPaceLabelLabel.hidden = false
-            
-            goalPaceLabel.text = myGoalPace
-            
-            
-            runActionButton.setTitle("End Run", forState: .Normal)
-            runActionButton.backgroundColor = UIColor(red: 234/255.0, green: 116/255.0, blue: 116/255.0, alpha: 1.0)
-
         }
         //if 'end run'
         else{
@@ -312,6 +375,7 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         else{
             myGoalPace = "N/A"
         }
+        goalPaceLabel.text = myGoalPace
     }
     
     
@@ -334,7 +398,7 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         // pace
         let myPace = (totalTime / distance)
   
-        let PaceSecs = (myPace % 60) // * (6/10)
+        let PaceSecs = (myPace % 60)
         let myPaceMins = String(format: "%.0f", myPace/60)
         var myPaceSecs = String (format: "%.0f", PaceSecs)
         if (PaceSecs < 10.000){
@@ -353,7 +417,6 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         ////////COACHING SHIT
         if (seconds%20 == 0 && (isCoachNotSet || isCoachOn) &&  totalTime > 60  && currentPaceSeconds > 0 && myGoalPace != "N/A" ){
             let paceDiff = currentPaceSeconds - paceGoalSeconds
-            //let paceDiff = 50 - Int(arc4random_uniform(100) + 1)
             
             let randomNum = Int(arc4random_uniform(3) + 1)
             let ranNumStr = String(randomNum)
@@ -464,7 +527,6 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     }
     
 
-    
-    
+
 
 }

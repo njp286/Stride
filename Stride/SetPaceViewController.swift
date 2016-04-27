@@ -100,11 +100,11 @@ class SetPaceViewController: UIViewController, UITextFieldDelegate {
                 if (error != nil) {
                     self.alertError(error!)
                 }
+                else {
+                     self.dismissViewControllerAnimated(true, completion: nil)
+                }
             }
         })
-        
-        dismissViewControllerAnimated(true, completion: nil)
-
         
     }
     

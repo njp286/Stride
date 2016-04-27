@@ -8,6 +8,7 @@
 
 import UIKit
 import Font_Awesome_Swift
+import Whisper
 
 class SettingsMainViewController: UIViewController {
 
@@ -15,13 +16,15 @@ class SettingsMainViewController: UIViewController {
     @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var strideCalculatorButton: UIButton!
     @IBOutlet weak var updateButton: UIButton!
+    @IBOutlet weak var resetButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setButtonAppearance(strideCalculatorButton)
         setButtonAppearance(updateButton)
-        
+        setButtonAppearance(resetButton)
+    
         
         navBar.leftBarButtonItem = UIBarButtonItem(image: UIImage(icon: FAType.FAHome, size: CGSize(width: 35.0, height: 35.0), textColor: UIColor.whiteColor() , backgroundColor: UIColor.clearColor()), style: .Plain, target: self, action: #selector(SettingsMainViewController.toHome))
         navBar.leftBarButtonItem?.tintColor = UIColor(red: 97/255.0, green: 171/255.0, blue: 201/255.0, alpha: 1.0)
@@ -54,5 +57,18 @@ class SettingsMainViewController: UIViewController {
         
     }
 
+    @IBAction func resetButtonPressed(sender: AnyObject) {
+        let alert = UIAlertController(title: "Reset Stride Settings", message: "Are you sure you want to reset all settings?", preferredStyle: .ActionSheet)
+        alert.addAction(UIAlertAction(title: "Yes. Reset the settings.", style: .Destructive, handler: { action in
+                RunnerSettingsInfo.sharedInstance().runSettings.removeAll()
+                StrideCoachSettingsClass.sharedInstance().scSettings.removeAll()
+                let message = Message(title: "Reset all settings", textColor: UIColor(red: 97/255.0, green: 171/255.0, blue: 201/255.0, alpha:  1.0), backgroundColor: UIColor(red: 5/255.0, green: 46/255.0, blue: 56/255.0, alpha: 1.0), images: nil)
+                Whisper(message, to: self.navigationController!)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil ))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+    }
     
 }
