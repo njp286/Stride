@@ -42,11 +42,11 @@ class HomeViewController: UIViewController, CircleMenuDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         menuIsOpen = false
-        
+    
         let button = CircleMenu(
             frame: CGRect(x: (myView.frame.width/2) - 25, y: ((2 * myView.frame.height)/3) - 25, width: 50, height: 50),
-            normalIcon: "",
-            selectedIcon: "",
+            normalIcon: nil,
+            selectedIcon: nil,
             buttonsCount: 5,
             duration: 0.5,
             distance: 120)
@@ -63,10 +63,6 @@ class HomeViewController: UIViewController, CircleMenuDelegate {
 
     }
         
-    
-    
-    
-
     
     ////////////////////////////
     ///MARK -- CIRCLE menu//////
@@ -91,7 +87,6 @@ class HomeViewController: UIViewController, CircleMenuDelegate {
     }
     
     func circleMenu(circleMenu: CircleMenu, buttonWillSelected button: CircleMenuButton, atIndex: Int) {
-        print("selected")
         let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 1 * Int64(NSEC_PER_SEC))
         dispatch_after(time, dispatch_get_main_queue()) {
             self.performSegueWithIdentifier(self.items[atIndex].board, sender: self)
@@ -99,7 +94,6 @@ class HomeViewController: UIViewController, CircleMenuDelegate {
     }
     
     func circleMenu(circleMenu: CircleMenu, buttonDidSelected button: CircleMenuButton, atIndex: Int) {
-        print("sent")
         performSegueWithIdentifier(items[atIndex].board, sender: self)
     }
     

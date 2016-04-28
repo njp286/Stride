@@ -14,6 +14,28 @@ import Font_Awesome_Swift
 import Whisper
 
 
+////////////////////////////////////
+///MARK -- Global helper functions//
+////////////////////////////////////
+
+
+func getDocumentsURL() -> NSURL {
+    let documentsURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+    return documentsURL
+}
+
+func fileInDocumentsDirectory(filename: String) -> String {
+    
+    let fileURL = getDocumentsURL().URLByAppendingPathComponent(filename)
+    return fileURL.path!
+    
+}
+
+/////////////////////////
+//MARK-- start class/////
+/////////////////////////
+
+
 class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, AVAudioPlayerDelegate {
     
     /////////////////////////////
@@ -264,8 +286,17 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             thisRun[Run.RunningCategories.pace] = self.paceLabel.text!
             thisRun[Run.RunningCategories.timestamp] = NSDate()
             
-            //add to runs array
-            ImagePersistance.sharedInstance().storeImage(image, withIdentifier: String(thisRun[Run.RunningCategories.timestamp]))
+           
+            
+            var identifier: String = String(thisRun[Run.RunningCategories.timestamp]!)
+            identifier = identifier.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+
+            
+            let pngImageData = UIImagePNGRepresentation(image)
+            let fileName = fileInDocumentsDirectory("\(identifier).png")
+            pngImageData!.writeToFile(fileName, atomically: true)
+            
+            
             User.sharedInstance().add(Run.init(dictionary: thisRun))
             NSKeyedArchiver.archiveRootObject(User.sharedInstance().runsArray, toFile: self.runsPath)
             completionHandler(error: nil)
@@ -273,6 +304,7 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         
     }
     
+    //runs path helper
     var runsPath : String {
         let manager = NSFileManager.defaultManager()
         let url = manager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
@@ -280,24 +312,30 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     }
     
     
+    //alert view if pace isn't set
     func noGoalPaceAlert( completionHandler: (toDo: String?) -> Void){
         //create alert for no goal pace
         let alert = UIAlertController(title: "Heads Up", message: "You dont have a goal pace set! To use Stride to its full potential you should set a goal pace  for yourself.", preferredStyle: .Alert)
-        
-        //ignore alert and continue
-        alert.addAction(UIAlertAction(title: "Continue without a goal pace", style: UIAlertActionStyle.Default, handler:  {(action: UIAlertAction!) in
+        //set goal pace pressed in alert
+        alert.addAction(UIAlertAction(title: "Use StrideCalculator", style: UIAlertActionStyle.Default) { (action: UIAlertAction!)  in
+            //dismiss alert
             
+            completionHandler(toDo: "calc")
+            alert.dismissViewControllerAnimated(true, completion: nil)
+        })
+        //set goal pace pressed in alert
+        alert.addAction(UIAlertAction(title: "Set pace manually", style: UIAlertActionStyle.Default) { (action: UIAlertAction!)  in
+            //dismiss alert
+            
+            completionHandler(toDo: "pace")
+            alert.dismissViewControllerAnimated(true, completion: nil)
+        })
+        //ignore alert and continue
+        alert.addAction(UIAlertAction(title: "Continue without a goal pace", style: UIAlertActionStyle.Cancel, handler:  {(action: UIAlertAction!) in
+            completionHandler(toDo: nil)
             alert.dismissViewControllerAnimated(true, completion: nil)
             
         }))
-        
-        //snooze pressed in alert
-        alert.addAction(UIAlertAction(title: "Set goal pace!", style: UIAlertActionStyle.Cancel) { (action: UIAlertAction!)  in
-            //dismiss alert
-            
-            completionHandler(toDo: "go")
-            alert.dismissViewControllerAnimated(true, completion: nil)
-        })
         
         //present alarm alert
         presentViewController(alert, animated: true, completion: nil)
@@ -305,6 +343,7 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     }
     
     
+    //start run function
     func start(){
         
         distanceLabel.hidden = false
@@ -317,8 +356,7 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         timeLabelLabel.hidden = false
         goalPaceLabelLabel.hidden = false
         
-        
-        
+    
         locations.removeAll(keepCapacity: false)
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(eachSecond), userInfo: nil, repeats: true)
         startLocationUpdates()
@@ -329,7 +367,6 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     }
 
     //Running button Pressed
-    //Running button Pressed
     @IBAction func runActionPressed(sender: AnyObject) {
         //if resume run or start running
         if(runActionButton.currentTitle == "Start Running"){
@@ -338,11 +375,14 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                     if toDo == nil {
                         self.start()
                     }
-                    else{
+                    else if toDo == "pace"{
                         
                         let viewController = self.storyboard!.instantiateViewControllerWithIdentifier("SetPaceViewController") as! SetPaceViewController
                         self.presentViewController(viewController, animated: true, completion:  nil)
-                        
+                    }
+                    else {
+                        let viewController = self.storyboard!.instantiateViewControllerWithIdentifier("StrideCalculatorViewController") as! StrideCalculatorViewController
+                        self.presentViewController(viewController, animated: true, completion:  nil)
                     }
                 }
             }

@@ -135,7 +135,7 @@ class StatisticsViewController: UIViewController, BEMSimpleLineGraphDelegate, BE
                 //TODO  PACE
                 var pace = User.sharedInstance().at(i).pace
                 
-                if pace == "--" {
+                if (pace == "--" || pace == "00:00") {
                     dates.removeLastObject()
                     distance.removeLastObject()
                 }

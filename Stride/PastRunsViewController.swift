@@ -84,8 +84,14 @@ class PastRunsViewController: UIViewController, UITableViewDelegate, UITableView
         formatter.dateStyle = .MediumStyle
         formatter.timeStyle = .NoStyle
         
+        let identifier = String(runObject.timestamp).stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+
+        let imageFile = fileInDocumentsDirectory("\(identifier).png")
+        let image = UIImage(contentsOfFile: imageFile)
+
         
-        cell.mapImage.image = ImagePersistance.sharedInstance().imageWithIdentifier(String(runObject.timestamp))
+        
+        cell.mapImage.image = image
         cell.mapImage.layer.cornerRadius = cell.mapImage.frame.height/2
         cell.mapImage.layer.borderColor = UIColor(red: 5/255.0, green: 46/255.0, blue: 56/255.0, alpha: 1.0).CGColor
         cell.mapImage.layer.borderWidth = 2.0
@@ -114,6 +120,17 @@ class PastRunsViewController: UIViewController, UITableViewDelegate, UITableView
     //delete run by swiping left
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
+            let imagePathToDelete = User.sharedInstance().at(indexPath.row).timestamp
+            
+            let identifier = String(imagePathToDelete).stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+            
+            let imagePath = fileInDocumentsDirectory("\(identifier).png")
+            
+            do {
+                try NSFileManager.defaultManager().removeItemAtPath(imagePath)
+            } catch{
+                print("error deleting image")
+            }
             
             User.sharedInstance().deleteFromRuns(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)

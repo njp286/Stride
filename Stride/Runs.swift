@@ -28,15 +28,6 @@ class Run: NSObject, NSCoding {
     var timestamp: NSDate
     
     
-    var map: UIImage? {
-        get {
-            return ImagePersistance.sharedInstance().imageWithIdentifier(String(timestamp))
-        }
-        
-        set {
-            ImagePersistance.sharedInstance().storeImage(newValue, withIdentifier: String(timestamp))
-        }
-    }
 
     
     

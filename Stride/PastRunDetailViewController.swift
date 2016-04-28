@@ -54,7 +54,14 @@ class PastRunDetailViewController: UIViewController {
         timeLabel.text = run.duration
         paceLabel.text = run.pace
         goalPaceLabel.text = run.goalPace
-        mapImage.image = ImagePersistance.sharedInstance().imageWithIdentifier(String(run.timestamp))
+        
+        let identifier = String(run.timestamp).stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+        
+        let imageFile = fileInDocumentsDirectory("\(identifier).png")
+        let image = UIImage(contentsOfFile: imageFile)
+        
+        
+        mapImage.image = image
         
 
     }
