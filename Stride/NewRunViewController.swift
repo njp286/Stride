@@ -74,6 +74,8 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     var audioPlayer = AVAudioPlayer()
     
+    var savedMapImage = UIImage()
+    
     ///////////////////////
     ///   MARK -- VIEW  ///
     ///////////////////////
@@ -257,6 +259,10 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                     self.navBar.leftBarButtonItem?.enabled = true
                     let message = Message(title: "Saved!", textColor: UIColor(red: 97/255.0, green: 171/255.0, blue: 201/255.0, alpha:  1.0), backgroundColor: UIColor(red: 5/255.0, green: 46/255.0, blue: 56/255.0, alpha: 1.0), images: nil)
                     Whisper(message, to: self.navigationController!)
+                    
+                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(icon: FAType.FAShare, size: CGSize(width: 35.0, height: 35.0), textColor: UIColor.whiteColor() , backgroundColor: UIColor.clearColor()), style: .Plain, target: self, action: #selector(NewRunViewController.share))
+                    self.navigationItem.rightBarButtonItem?.tintColor = UIColor(red: 97/255.0, green: 171/255.0, blue: 201/255.0, alpha: 1.0)
+                    
                 }
             }
         }
@@ -275,10 +281,14 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         completionHandler(image: mapImage, error: nil)
     }
     
+    /////////////////////
+    //MARK -- save run //
+    /////////////////////
     
-    //save run
     func saveRun(completionHandler: (error:String?) -> Void) {
         generateMapImage(){ (image, error) in
+            self.savedMapImage = image
+            
             var thisRun = [String : AnyObject]()
             thisRun[Run.RunningCategories.distance] = self.distanceLabel.text!
             thisRun[Run.RunningCategories.duration] = self.timeLabel.text!
@@ -311,8 +321,10 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         return url.URLByAppendingPathComponent("runArray").path!
     }
     
+    //////////////////////////////////
+    //MARK -- no goal pace set alert//
+    //////////////////////////////////
     
-    //alert view if pace isn't set
     func noGoalPaceAlert( completionHandler: (toDo: String?) -> Void){
         //create alert for no goal pace
         let alert = UIAlertController(title: "Heads Up", message: "You dont have a goal pace set! To use Stride to its full potential you should set a goal pace  for yourself.", preferredStyle: .Alert)
@@ -342,8 +354,10 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
 
     }
     
+    ///////////////////////
+    //   MARK -- start  ///
+    ///////////////////////
     
-    //start run function
     func start(){
         
         distanceLabel.hidden = false
@@ -365,8 +379,11 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         runActionButton.backgroundColor = UIColor(red: 234/255.0, green: 116/255.0, blue: 116/255.0, alpha: 1.0)
         
     }
-
-    //Running button Pressed
+    
+    //////////////////////////////
+    //MARK -- run button pressed//
+    //////////////////////////////
+    
     @IBAction func runActionPressed(sender: AnyObject) {
         //if resume run or start running
         if(runActionButton.currentTitle == "Start Running"){
@@ -397,7 +414,11 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         }
     }
     
-    //sets myGoalPace variable
+    
+    //////////////////////////
+    /// MARK -- set goalpace//
+    //////////////////////////
+    
     func getPace(){
         let runSets = RunnerSettingsInfo.sharedInstance().runSettings.first
         if((runSets?.paceGoal) != nil){
@@ -419,7 +440,10 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     }
     
     
-    //timer helper function -- runs ever second that run is active
+    ////////////////////////////////////
+    ///MARK -- run active w/ coaching //
+    ////////////////////////////////////
+    
     func eachSecond() {
         if seconds == 59 {
             seconds = 0
@@ -494,6 +518,28 @@ class NewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             
         }
     }
+    
+    
+    ///////////////////
+    //MARK -- share ///
+    ///////////////////
+    func share(){
+        var sharingItems = [AnyObject]()
+        
+        let imageToShare = savedMapImage
+        sharingItems.append(imageToShare)
+        let textToShare = "I just ran \(distanceLabel.text) with a pace of \(paceLabel.text) on the Stride app!"
+        sharingItems.append(textToShare)
+        
+        
+        let activityViewController = UIActivityViewController(activityItems: sharingItems, applicationActivities: nil)
+        activityViewController.excludedActivityTypes = [UIActivityTypeCopyToPasteboard,UIActivityTypeAirDrop,UIActivityTypeAddToReadingList,UIActivityTypeAssignToContact,UIActivityTypePostToTencentWeibo,UIActivityTypePostToVimeo,UIActivityTypePrint,UIActivityTypeSaveToCameraRoll,UIActivityTypePostToWeibo]
+        self.presentViewController(activityViewController, animated: true, completion: nil)
+        
+
+    }
+
+    
 
     ////////////////////////////////
     //MARK-- map related functions//

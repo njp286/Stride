@@ -12,9 +12,13 @@ import CoreLocation
 
 class User {
     
-    
+    var verified: Bool!
     var name = ""
     var runsArray = [Run]()
+    
+    struct myUser {
+        static let verified = "verified"
+    }
     
     
     class func sharedInstance() -> User {

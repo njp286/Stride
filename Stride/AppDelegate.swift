@@ -27,55 +27,77 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Fabric.with([Crashlytics.self])
         
-        //Load runs
-        User.sharedInstance().runsArray = NSKeyedUnarchiver.unarchiveObjectWithFile(runsPath) as? [Run] ?? [Run]()
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
-        //set saved pace/
-        if NSUserDefaults.standardUserDefaults().integerForKey(RunSettingsStruct.mileTime) != 0 {
-            let mileTime = NSUserDefaults.standardUserDefaults().integerForKey(RunSettingsStruct.mileTime)
-            let distance = NSUserDefaults.standardUserDefaults().floatForKey(RunSettingsStruct.goalDistance)
-            let pace = NSUserDefaults.standardUserDefaults().floatForKey(RunSettingsStruct.paceGoal)
-            
-            var info = [String : AnyObject]()
-            info[RunSettingsStruct.mileTime] = mileTime
-            info[RunSettingsStruct.goalDistance] = distance
-            info[RunSettingsStruct.paceGoal] = pace
-            
-            let runnerInfo = RunnerSettings.init(dictionary: info)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        
+        if NSUserDefaults.standardUserDefaults().boolForKey(User.myUser.verified) == true{
             
             
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                RunnerSettings.updateRunInfo(runnerInfo) { (error) in
-                    if error != nil {
-                        print(error)
+            let initialViewController = storyboard.instantiateViewControllerWithIdentifier("HomeViewController") as! HomeViewController
+            
+            //Load runs
+            User.sharedInstance().runsArray = NSKeyedUnarchiver.unarchiveObjectWithFile(runsPath) as? [Run] ?? [Run]()
+            
+            //set saved pace/
+            if NSUserDefaults.standardUserDefaults().integerForKey(RunSettingsStruct.mileTime) != 0 {
+                let mileTime = NSUserDefaults.standardUserDefaults().integerForKey(RunSettingsStruct.mileTime)
+                let distance = NSUserDefaults.standardUserDefaults().floatForKey(RunSettingsStruct.goalDistance)
+                let pace = NSUserDefaults.standardUserDefaults().floatForKey(RunSettingsStruct.paceGoal)
+                
+                var info = [String : AnyObject]()
+                info[RunSettingsStruct.mileTime] = mileTime
+                info[RunSettingsStruct.goalDistance] = distance
+                info[RunSettingsStruct.paceGoal] = pace
+                
+                let runnerInfo = RunnerSettings.init(dictionary: info)
+                
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    RunnerSettings.updateRunInfo(runnerInfo) { (error) in
+                        if error != nil {
+                            print(error)
+                        }
+                        else{
+                            print("loaded running info")
+                        }
                     }
-                    else{
-                        print("loaded running info")
-                    }
-                }
-            })
+                })
+                
+                
+            }
             
+            //set saved coachsettings
+            if NSUserDefaults.standardUserDefaults().stringForKey(SCSettingsStruct.coach) != nil {
+                let coach = NSUserDefaults.standardUserDefaults().stringForKey(SCSettingsStruct.coach)
+                print(coach)
+                let isOn = NSUserDefaults.standardUserDefaults().boolForKey(SCSettingsStruct.isOn)
+                
+                var coachSettings = [String : AnyObject]()
+                coachSettings[SCSettingsStruct.isOn] = isOn
+                coachSettings[SCSettingsStruct.coach] =  coach
+                
+                let updatedSettings = StrideCoachSettings(dictionary: coachSettings)
+                
+                StrideCoachSettings.updateStrideCoachSettings(updatedSettings)
+                
+                print("loaded coach info")
+            }
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+
+        }
+        else {
+            
+            let initialViewController = storyboard.instantiateViewControllerWithIdentifier("TwilioSendMessage") as! TwilioSendMessage
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
             
         }
         
-        //set saved coachsettings
-        if NSUserDefaults.standardUserDefaults().stringForKey(SCSettingsStruct.coach) != nil {
-            let coach = NSUserDefaults.standardUserDefaults().stringForKey(SCSettingsStruct.coach)
-            print(coach)
-            let isOn = NSUserDefaults.standardUserDefaults().boolForKey(SCSettingsStruct.isOn)
-            
-            var coachSettings = [String : AnyObject]()
-            coachSettings[SCSettingsStruct.isOn] = isOn
-            coachSettings[SCSettingsStruct.coach] =  coach
-            
-            let updatedSettings = StrideCoachSettings(dictionary: coachSettings)
-            
-            StrideCoachSettings.updateStrideCoachSettings(updatedSettings)
-            
-            print("loaded coach info")
-        }
         
-    
+        
 
         return true
     }
@@ -88,6 +110,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+     
+        
+        
         if RunnerSettingsInfo.sharedInstance().runSettings.count > 0{
             NSUserDefaults.standardUserDefaults().setInteger(Int((RunnerSettingsInfo.sharedInstance().runSettings.first?.mileTime)!), forKey: RunSettingsStruct.mileTime)
             NSUserDefaults.standardUserDefaults().setFloat(Float((RunnerSettingsInfo.sharedInstance().runSettings.first?.goalDistance)!), forKey: RunSettingsStruct.goalDistance)

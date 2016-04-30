@@ -41,6 +41,7 @@
 		7D3A32091CCA778400001B00 /* 4Woman31.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31E71CCA778400001B00 /* 4Woman31.mp3 */; };
 		7D3A320A1CCA778400001B00 /* 4Woman32.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31E81CCA778400001B00 /* 4Woman32.mp3 */; };
 		7D3A320B1CCA778400001B00 /* 4Woman33.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7D3A31E91CCA778400001B00 /* 4Woman33.mp3 */; };
+		7D47E39A1CD29668008C890A /* TwilioVerifyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D47E3991CD29668008C890A /* TwilioVerifyCode.swift */; };
 		7D5BAF161CB5CED200D5D373 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5BAF151CB5CED200D5D373 /* AppDelegate.swift */; };
 		7D5BAF1B1CB5CED200D5D373 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D5BAF191CB5CED200D5D373 /* Main.storyboard */; };
 		7D5BAF1D1CB5CED200D5D373 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D5BAF1C1CB5CED200D5D373 /* Assets.xcassets */; };
@@ -100,6 +101,9 @@
 		7DD3EE831CCB0590009F7B13 /* 1Woman13.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7DD3EE821CCB0590009F7B13 /* 1Woman13.mp3 */; };
 		7DD58DBA1CD028B300917788 /* Runs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD58DB91CD028B300917788 /* Runs.swift */; };
 		7DD58DBC1CD03E5300917788 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD58DBB1CD03E5300917788 /* User.swift */; };
+		7DF23BE51CD2689F00E482D3 /* TwilioConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF23BE41CD2689F00E482D3 /* TwilioConstants.swift */; };
+		7DF23BE71CD26B1800E482D3 /* TwilioClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF23BE61CD26B1800E482D3 /* TwilioClient.swift */; };
+		7DF23BEA1CD27F9300E482D3 /* TwilioSendMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF23BE91CD27F9300E482D3 /* TwilioSendMessage.swift */; };
 		E14EAAA5BF72B519FB3FA368 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB47491F37EB42CF4484E55 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -157,6 +161,7 @@
 		7D3A31E71CCA778400001B00 /* 4Woman31.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 4Woman31.mp3; sourceTree = "<group>"; };
 		7D3A31E81CCA778400001B00 /* 4Woman32.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 4Woman32.mp3; sourceTree = "<group>"; };
 		7D3A31E91CCA778400001B00 /* 4Woman33.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 4Woman33.mp3; sourceTree = "<group>"; };
+		7D47E3991CD29668008C890A /* TwilioVerifyCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwilioVerifyCode.swift; sourceTree = "<group>"; };
 		7D5BAF121CB5CED200D5D373 /* Stride.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stride.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D5BAF151CB5CED200D5D373 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D5BAF1A1CB5CED200D5D373 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -223,6 +228,9 @@
 		7DD3EE821CCB0590009F7B13 /* 1Woman13.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1Woman13.mp3; sourceTree = "<group>"; };
 		7DD58DB91CD028B300917788 /* Runs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Runs.swift; sourceTree = "<group>"; };
 		7DD58DBB1CD03E5300917788 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7DF23BE41CD2689F00E482D3 /* TwilioConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwilioConstants.swift; sourceTree = "<group>"; };
+		7DF23BE61CD26B1800E482D3 /* TwilioClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwilioClient.swift; sourceTree = "<group>"; };
+		7DF23BE91CD27F9300E482D3 /* TwilioSendMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwilioSendMessage.swift; sourceTree = "<group>"; };
 		7E100D5FD8BEA36739CAA7D4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -398,6 +406,7 @@
 		7D84D7AA1CBD543000392A1F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7DF23BE81CD27F7900E482D3 /* Twilio */,
 				7DAD308E1CC7ED0100494EB9 /* Statistics */,
 				7DAD308B1CC7DCDE00494EB9 /* Information */,
 				7DAD30841CC7049500494EB9 /* Runs */,
@@ -414,6 +423,8 @@
 				7D84D7BE1CBEF30F00392A1F /* RunnerSettings.swift */,
 				7DAD309B1CC7F7DB00494EB9 /* StrideCoachSettings.swift */,
 				7DD58DBB1CD03E5300917788 /* User.swift */,
+				7DF23BE41CD2689F00E482D3 /* TwilioConstants.swift */,
+				7DF23BE61CD26B1800E482D3 /* TwilioClient.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -487,6 +498,15 @@
 				7DAD30931CC7EF5400494EB9 /* StrideCoachSettingsViewController.swift */,
 			);
 			name = StrideCoach;
+			sourceTree = "<group>";
+		};
+		7DF23BE81CD27F7900E482D3 /* Twilio */ = {
+			isa = PBXGroup;
+			children = (
+				7DF23BE91CD27F9300E482D3 /* TwilioSendMessage.swift */,
+				7D47E3991CD29668008C890A /* TwilioVerifyCode.swift */,
+			);
+			name = Twilio;
 			sourceTree = "<group>";
 		};
 		92869CBF4D002221A7595B4E /* Frameworks */ = {
@@ -785,13 +805,17 @@
 				7D5BAF161CB5CED200D5D373 /* AppDelegate.swift in Sources */,
 				7DAD30861CC7218C00494EB9 /* SettingsMainViewController.swift in Sources */,
 				7D84D7A91CBD542500392A1F /* StrideCalculatorViewController.swift in Sources */,
+				7DF23BEA1CD27F9300E482D3 /* TwilioSendMessage.swift in Sources */,
 				7DAD30941CC7EF5400494EB9 /* StrideCoachSettingsViewController.swift in Sources */,
 				7DD58DBC1CD03E5300917788 /* User.swift in Sources */,
 				7DD58DBA1CD028B300917788 /* Runs.swift in Sources */,
 				7D6AE2181CCDA43000EE97E4 /* StatisticsViewController.swift in Sources */,
+				7DF23BE51CD2689F00E482D3 /* TwilioConstants.swift in Sources */,
 				7D84D7BF1CBEF30F00392A1F /* RunnerSettings.swift in Sources */,
+				7DF23BE71CD26B1800E482D3 /* TwilioClient.swift in Sources */,
 				7D84D7C31CC6B39300392A1F /* SetPaceViewController.swift in Sources */,
 				7D84D7AC1CBD545800392A1F /* NewRunViewController.swift in Sources */,
+				7D47E39A1CD29668008C890A /* TwilioVerifyCode.swift in Sources */,
 				7D84D7B21CBD561200392A1F /* HomeViewController.swift in Sources */,
 				7D84D7B01CBD548D00392A1F /* PastRunDetailViewController.swift in Sources */,
 				7DAD308A1CC7BD8200494EB9 /* PastRunsTableViewCell.swift in Sources */,
